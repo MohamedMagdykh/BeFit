@@ -1,0 +1,376 @@
+:root {
+  --maincolor: var(--maincolor);
+}
+
+.carousel-item img {
+  max-height: 840px;
+}
+
+.carousel-item .CoverPhoto {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  background: rgba(37, 37, 37, 0.5);
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+.carousel-item .CoverPhoto h1 {
+  font-family: "Raleway";
+  margin-left: 20px;
+  color: white;
+  font-size: 30px;
+}
+
+.carousel-item .CoverPhoto h1 .FitLogo {
+  color: var(--maincolor);
+}
+
+.carousel-item .CoverPhoto .PositionCaption {
+  margin-right: 28%;
+  margin-top: 17%;
+}
+
+.carousel-item .CoverPhoto .PositionCaption h3, .carousel-item .CoverPhoto .PositionCaption h4, .carousel-item .CoverPhoto .PositionCaption .GitFitStrong, .carousel-item .CoverPhoto .PositionCaption h1, .carousel-item .CoverPhoto .PositionCaption p {
+  margin-bottom: 1%;
+}
+
+.carousel-item .CoverPhoto .PositionCaption h3 {
+  margin-left: -230px;
+}
+
+.carousel-item .CoverPhoto .PositionCaption h4 {
+  margin-right: 162px;
+}
+
+.carousel-item .CoverPhoto .PositionCaption .GitFitStrong {
+  margin-left: 70px;
+}
+
+.carousel-item .CoverPhoto .PositionCaption h1 {
+  font-size: 3.5rem;
+  font-weight: 662;
+}
+
+.carousel-item .CoverPhoto .PositionCaption p {
+  margin-left: 275px;
+}
+
+.carousel-item .CoverPhoto .PositionCaption span {
+  color: var(--maincolor);
+}
+
+.carousel-item .CoverPhoto .btn {
+  background: var(--maincolor);
+  color: whitesmoke;
+  width: 30%;
+  margin-right: 5%;
+  margin-top: 4%;
+}
+
+.AboutUs {
+  background: white;
+  -webkit-box-shadow: 0px 8px 10px 10px whitesmoke;
+          box-shadow: 0px 8px 10px 10px whitesmoke;
+}
+
+.AboutUs .container {
+  width: 100%;
+  height: 600px;
+}
+
+.AboutUs .container h1 {
+  color: var(--maincolor);
+  margin-top: 2%;
+  padding-top: 3%;
+}
+
+.AboutUs .container .ParaAboutUs {
+  padding-top: 3%;
+}
+
+.AboutUs .container .signature {
+  margin-top: 6%;
+  margin-left: 25%;
+  -webkit-transform: rotate(-15deg);
+          transform: rotate(-15deg);
+}
+
+.AboutUs .container .signature:hover {
+  -webkit-box-shadow: 8px 8px 10px 10px whitesmoke;
+          box-shadow: 8px 8px 10px 10px whitesmoke;
+}
+
+.sectionTrainer {
+  min-width: 100%;
+  height: 450px;
+}
+
+.sectionTrainer .row .right {
+  background: url("src/assets/Trainer.jpg");
+  background-size: 100% 100%;
+  width: 50%;
+  height: auto;
+}
+
+.sectionTrainer .row .right .DarkFrame {
+  background: rgba(37, 37, 37, 0.5);
+  width: 100%;
+  height: 450px;
+  padding-top: 20%;
+}
+
+.sectionTrainer .row .right .DarkFrame div {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  width: 280px;
+  margin-left: 12%;
+}
+
+.sectionTrainer .row .right .DarkFrame div p {
+  margin-left: 20%;
+  margin-top: 3%;
+  margin-bottom: 0px;
+}
+
+.sectionTrainer .row .right .DarkFrame div p span {
+  font-size: 25px;
+  color: #ffffff;
+}
+
+.sectionTrainer .row .right .DarkFrame div h2 {
+  margin-top: 0px;
+  margin-bottom: 3%;
+  margin-left: 20%;
+}
+
+.sectionTrainer .row .right .DarkFrame div h2 span {
+  font-size: 45px;
+  color: var(--maincolor);
+}
+
+.sectionTrainer .row .left {
+  width: 50%;
+  height: 450px;
+  padding-left: 8%;
+  padding-top: 2%;
+}
+
+.sectionTrainer .row .left p span strong .NameTrainer {
+  color: #505050;
+  font-size: 24pt;
+}
+
+.sectionTrainer .row .left p .Jop {
+  font-family: "Raleway";
+  color: #8d8d8d;
+  font-size: 24pt;
+}
+
+.sectionTrainer .row .left p .Jop span {
+  font-size: 18pt;
+}
+
+.sectionTrainer .row .left .InfoTrainer {
+  overflow: scroll;
+}
+
+footer {
+  background-color: #262626;
+  height: 550px;
+}
+
+footer h3 {
+  color: #fff;
+  font-size: 25px;
+  margin-top: 10%;
+  margin-bottom: 11%;
+}
+
+footer .contacts {
+  margin-top: 6%;
+  color: #fff;
+}
+
+footer .contacts div {
+  margin-bottom: 6%;
+}
+
+footer .contacts div i {
+  margin-right: 10%;
+}
+
+footer .RecentPosts {
+  margin-top: 5%;
+}
+
+footer .RecentPosts .FristPost {
+  margin-left: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+footer .RecentPosts .FristPost .photo {
+  border-radius: 50%;
+  background: url("src/assets/FristPost.jpg");
+  background-size: 100% 100%;
+  height: 75px;
+  width: 75px;
+}
+
+footer .RecentPosts .FristPost .Name {
+  margin-top: 10px;
+  margin-left: 20px;
+  color: white;
+}
+
+footer .RecentPosts .SecondPost {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin-left: 20px;
+  padding-top: 15px;
+}
+
+footer .RecentPosts .SecondPost .photo {
+  border-radius: 50%;
+  background: url("src/assets/SecondPost.jpg");
+  background-size: 100% 100%;
+  height: 75px;
+  width: 75px;
+}
+
+footer .RecentPosts .SecondPost .Name {
+  margin-top: 10px;
+  margin-left: 20px;
+  color: white;
+}
+
+footer .RecentPosts .ThirdPost {
+  padding-top: 15px;
+  margin-left: 20px;
+}
+
+footer .RecentPosts .ThirdPost .photo {
+  border-radius: 50%;
+  background: url("src/assets/ThirdPost.jpg");
+  background-size: 100% 100%;
+  height: 75px;
+  width: 75px;
+}
+
+footer .RecentPosts .ThirdPost .Name {
+  margin-top: 10px;
+  margin-left: 20px;
+  color: white;
+}
+
+footer .LatestProjects {
+  margin-top: 5%;
+}
+
+footer .LatestProjects .one {
+  background: url("src/assets/1.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+}
+
+footer .LatestProjects .two {
+  background: url("src/assets/2.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+}
+
+footer .LatestProjects .three {
+  background: url("src/assets/3.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+}
+
+footer .LatestProjects .four {
+  background: url("src/assets/4.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+footer .LatestProjects .five {
+  background: url("src/assets/5.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+footer .LatestProjects .six {
+  background: url("src/assets/6.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+footer .LatestProjects .seven {
+  background: url("src/assets/7.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+footer .LatestProjects .eight {
+  background: url("src/assets/8.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+footer .LatestProjects .nine {
+  background: url("src/assets/9.jpg");
+  background-size: 100% 100%;
+  height: 85px;
+  width: 85px;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+footer .copyright {
+  background: #222;
+  color: white;
+  min-width: 100%;
+  height: 47px;
+  padding-top: 10px;
+  bottom: 0px;
+  margin-top: 3%;
+}
+
+footer .copyright .Fit {
+  color: var(--maincolor);
+}
+
+#myModal2 {
+  background: rgba(30, 30, 30, 0.7);
+}
+
+#myModal2 .inputcontact {
+  margin-bottom: 20px;
+}
+
+#myModal2 .fa {
+  margin-bottom: 20px;
+}
+/*# sourceMappingURL=home.component.css.map */

@@ -1,0 +1,169 @@
+
+
+<div class="row Exrecisecomponent">
+    <div class="col-3 ">
+      <div class="list-group ExreciseName" id="list-tab" role="tablist">
+        <a class="list-group-item list-group-item-action " id="list-home-list" data-toggle="list" role="tab" aria-controls="home" (click)="IdEx(item.id)" *ngFor="let item of this.DataExrecises ">{{item.ExreciseName}}</a>
+        <a class="list-group-item list-group-item-action " id="list-Exercise system-list" data-toggle="modal" data-target="#ExreciseName"  role="tab" >Add New Exercise System  <i class="fa fa-plus fa-lg " aria-hidden="true"></i></a>
+
+      </div>
+    </div>
+    <div class="col-9 formAddEx" *ngIf=" getdata.length==0 ">
+        <div class="container  ">
+          <select class="DaysSelection"   [(ngModel)]="NumDay" name="day"  >
+            <option disabled >Must Choose Day</option>
+            <option  *ngFor="let item of NumDays; let i=index" (click)="indexdayselect(i)">{{item}}</option>
+            
+      </select>
+
+        
+        <input [disabled]="NumDay=='Must Choose Day'" class="form-control nameExrecise" type="text" [(ngModel)]="nameEx" placeholder="Name exrecise">
+        <div class="formImg">
+        <label class="btn btn-default"> <input type="file"
+          (change)="SelectImg($event)">
+        </label>
+         
+        <button class="btn btn-success" [disabled]="!selectedFiles || NumDay=='Must Choose Day' "
+          (click)="AddImgExecise()">Upload</button>
+          
+        
+      
+      <div *ngIf="currentFileUpload" class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped"
+          role="progressbar" attr.aria-valuenow="{{percentage}}"
+          aria-valuemin="0" aria-valuemax="100"
+          [ngStyle]="{width:percentage+'%'}">
+          {{percentage}}%</div>
+      </div>
+    </div>
+      <br>
+      <div class="row">
+        <button  type="submit" [disabled]="load" (click)="addCollectionEx()" class="form-control btn-addEx">Add Exrecise</button>
+
+      <div class="load" *ngIf="percentage==100 && load==true">
+        <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+        <span >Loading...</span>
+      </div>
+
+       </div>
+      
+            <label class="numExAdd">Number Exrecise Added : {{this.dataOfEx.length}}</label>
+
+            <input  class="form-control nameExrecise " type="text" name="nameday" [(ngModel)]="NameDay" placeholder="Name Day">
+
+            <button  type="submit" [disabled]='this.NameDay == undefined || this.NameDay == "" '  data-toggle="modal" data-target="#ExreciseAdd" class="form-control btn-addEx">Add Day</button>
+
+      <textarea name="describion" class="describe" required  #des="ngModel" [(ngModel)]="describion" cols="80" rows="5" placeholder="Add Describion About System Exrecise"></textarea>
+      <div  *ngIf="des.invalid && (des.dirty || des.touched)"
+                          class="alert alert-danger " >
+                      <div *ngIf="des.errors.required">
+                         required 
+                      </div>
+                    </div>
+      <button [disabled]='this.dataOfDayEx.length<2 || des.invalid '    (click)="AddDataEx()" class="form-control btn-SaveEx">Save Exrecise System</button>
+
+
+
+       
+    
+    
+      
+    </div>
+  </div>
+  <div class="col-9 EXshow"  *ngIf="getdata.length!=0">
+    <h2 class="text-center">{{EXsystemname}}</h2>
+    <button class=" form-control btn-select wow pulse" data-wow-duration="2s"  data-wow-delay="0.5s" (click)="EXSelect()">Select This Exrecise System</button>
+     <span style="color: var(--maincolor);">Describion For {{EXsystemname}} : </span>
+    <p class="lead">{{getdescribion}}</p>
+    <div *ngFor="let item of getdata; ">
+      <h3 class="text-center">{{item.day}}/{{item.nameDay}}</h3>
+      <div class="oneEX text-center" *ngFor="let item2 of item.data;let i=index">
+        <h4>{{i+1}}. {{item2.name}}</h4>
+        <img src="{{item2.photo}}" alt="noPhoto">
+        
+
+
+      </div>
+      
+
+    </div>
+  
+    
+  
+    
+
+  </div>
+</div>
+
+
+  <!-- //////////////////////////////////////name EX model///////////////////////////////////////// -->
+  <div class="container" >
+      
+    <!-- Modal -->
+    <div class="modal fade" id="ExreciseName" role="dialog" >
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Exrecise Name</h3>
+            <button type="button" class="close"  data-dismiss="modal">&times;</button>
+            
+           
+          </div>
+          <div class="modal-body">
+            <input type="text" class="form-control" name="Exrecise" placeholder="Exrecise Name" [(ngModel)]=" NameSystemEx">
+
+
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-default BtnAddFoodModel"   data-dismiss="modal" (click)="AddExrecises()" >ADD</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ////////////////////////////////////////add ex model/////////////////////////////// -->
+
+  <div class="container" >
+      
+    <!-- Modal -->
+    <div class="modal fade" id="ExreciseAdd" role="dialog" >
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>ADD EXRECISE</h3>
+            <button type="button" class="close"  data-dismiss="modal">&times;</button>
+            
+           
+          </div>
+          <div class="modal-body" *ngFor="let item of dataOfEx; let i=index">
+            <div class="row">
+            <div class="NameExEdite">
+              EXRECISE{{i+1}}:  {{item.name}}
+            </div>
+            <img class="photoExselect" src="{{item.photo}}" alt="NoPhoto">
+            <i class="fa fa-trash fa-lg trash1" (click)="removeExAdd(i)" aria-hidden="true" ></i> 
+
+           
+          </div>
+            
+
+
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-default BtnAddFoodModel"   data-dismiss="modal" (click)="DaySelect()" >ADD</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>

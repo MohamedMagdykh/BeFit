@@ -1,0 +1,156 @@
+:root {
+  --maincolor: var(--maincolor);
+}
+
+.col-lg-12 {
+  margin-top: 16%;
+  margin-bottom: 8%;
+}
+
+.col-lg-12 .AddBtn {
+  background-color: var(--maincolor);
+  color: white;
+  width: 100%;
+  height: 3em;
+  font-size: 20px;
+}
+
+.col-lg-12 .SearchInput {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+  height: 3.8em;
+  padding: 1rem 0;
+  width: 75%;
+}
+
+.col-lg-12 .SearchInput:focus {
+  border-color: var(--maincolor);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.col-lg-12 .SearchBtn {
+  border-radius: 4px 0 0 4px;
+  width: 25%;
+  background-color: var(--maincolor);
+  color: white;
+  height: 3.8em;
+  border-right: none;
+}
+
+.CaptionSearch {
+  margin-top: 4%;
+  margin-left: 25%;
+}
+
+.CaptionSearch h5 {
+  margin-top: 2%;
+  font-size: 2rem;
+}
+
+.CaptionSearch h6 {
+  margin-top: 2%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.modal-content .modal-body input {
+  margin-top: 5%;
+}
+
+.modal-content .BtnAddFoodModel {
+  background: var(--maincolor);
+  color: white;
+}
+
+.modal-content .h3 {
+  color: var(--maincolor);
+}
+
+.Getfoods {
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  margin: 4% 0 4% 20%;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.Getfoods .card-img-top {
+  height: 196px;
+}
+
+.Getfoods:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.Getfoods .card-body {
+  margin-top: -17%;
+  padding-bottom: 3%;
+  height: 268px;
+}
+
+.Getfoods .card-body h5 {
+  color: var(--maincolor);
+}
+
+.Getfoods .card-body h6 {
+  margin-top: -9%;
+  margin-bottom: 0%;
+  color: var(--maincolor);
+  opacity: 0.8;
+  font-size: 1.3rem;
+}
+
+.Getfoods .card-body p {
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.Getfoods .card-body .btn {
+  background-color: var(--maincolor);
+  border-color: var(--maincolor);
+  width: 100%;
+  color: white;
+}
+
+.progress {
+  margin-bottom: 4%;
+}
+
+.calories {
+  background-color: var(--maincolor);
+  margin-top: 300px;
+  position: fixed;
+  z-index: 99999;
+  width: 20%;
+  height: auto;
+  padding-top: 1%;
+  left: 0px;
+}
+
+.calories span, .calories div {
+  color: white;
+}
+
+.calories span {
+  margin-bottom: 5%;
+}
+
+.calories .btn-savemeal {
+  width: 60%;
+  background-color: white;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  color: var(--maincolor);
+}
+
+.calories .meals, .calories .addfoods {
+  margin-bottom: 2%;
+}
+
+.calories .meals {
+  background-color: var(--maincolor);
+  color: white;
+}
+/*# sourceMappingURL=foods.component.css.map */

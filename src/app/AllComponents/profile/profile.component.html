@@ -1,0 +1,911 @@
+<div class="col-12">
+  <div class="row">
+
+      <div class="info col-4">
+                  <div class="container">
+                      <div class="row">
+                          <div >
+                              
+                              <button class="BtnChange" (click)="GetImage()"  aria-hidden="true" data-toggle="modal" data-target="#ChangeProfilePhoto">
+                                <img src="{{UserUrl}}" alt=""></button>
+                          </div>
+                          <div class="col-12-lg username">
+                              UserName  : {{Username}}
+                              <i class="fa fa-pencil " aria-hidden="true" data-toggle="modal" data-target="#ChangeUserName"></i>
+
+                              <div class="col-12-lg e-mail" >
+                                  {{mail}}
+                              </div>
+                          </div>
+                          
+                      </div>
+                      
+
+                  </div>
+                  <!-- //////////////////////////////change pass/////////////////////////////////////////////// -->
+
+              <div class="changepass">
+                <div class="container text-center">
+                  <h2>Change Password</h2>
+                    <input class="form-control" [(ngModel)]="oldpass" name="oldpass" type="password" placeholder="Old Password">
+                    <input class="form-control" [(ngModel)]="newpass" name="newpass"  type="password" placeholder="New Password">
+                    <input class="form-control" [(ngModel)]="renewpass"  name="renewpass" type="password" placeholder="Confirm Password">       
+                  <button class="form-control BtnChange text-center" (click)="chanepass()" >Change Password</button>
+                </div>
+
+            </div>
+
+      </div>
+
+      <!-- //////////////////////////////////////////////////////////PLAN//////////////////////////////////////////////////// -->
+      <div class="plan col-8" *ngIf="day1.length !=0 || day2.length !=0 || day3.length !=0 || day4.length !=0 || day5.length !=0 || day6.length !=0 || day7.length !=0 || ExSystem.length!=0">
+        <h2 >My plane</h2>
+        <div class="container text-center" *ngIf="day1.length !=0 || day2.length !=0 || day3.length !=0 || day4.length !=0 || day5.length !=0 || day6.length !=0 || day7.length !=0">
+          
+          <div class="borderstyly" > 
+        
+          <div class="daytable" *ngIf="day1.length !=0 ">
+          <h3 class="day">Day1</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Name Meal</th>
+                <th scope="col">Content Meal</th>
+                <th scope="col">Calories </th>
+                <th scope="col">Protein </th>
+                <th scope="col">Carb </th>
+                <th scope="col">Fat </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of day1; let i=index" class="content" >
+                <th  scope="row">{{item.NumMeal}}</th>
+                <div *ngFor="let item2 of item.SelFoods" >{{item2.name}} {{item2.amount}} <span *ngIf="item2.amount>10">g</span></div>
+                <td>{{item.caloriesOfMeal}}</td>
+                <td>{{item.proteinOfMeal}}</td>
+                <td>{{item.carbOfMeal}}</td>
+                <td>{{item.fatOfMeal}}</td>
+
+                
+              
+              
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+      
+
+        <div class="daytable" *ngIf="day2.length !=0 ">
+          <h3 class="day">Day2</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Name Meal</th>
+                <th scope="col">Content Meal</th>
+                <th scope="col">Calories In Meal</th>
+                <th scope="col">Protein </th>
+                <th scope="col">Carb </th>
+                <th scope="col">Fat </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of day2; let i=index" class="content" >
+                <th  scope="row">{{item.NumMeal}}</th>
+                <div *ngFor="let item2 of item.SelFoods" >{{item2.name}} {{item2.amount}} <span *ngIf="item2.amount>10">g</span></div>
+                <td>{{item.caloriesOfMeal}}</td>
+                <td>{{item.proteinOfMeal}}</td>
+                <td>{{item.carbOfMeal}}</td>
+                <td>{{item.fatOfMeal}}</td>
+                
+              
+              
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        <div class="daytable" *ngIf="day3.length !=0 ">
+          <h3 class="day">Day3</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Name Meal</th>
+                <th scope="col">Content Meal</th>
+                <th scope="col">Calories In Meal</th>
+                <th scope="col">Protein </th>
+                <th scope="col">Carb </th>
+                <th scope="col">Fat </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of day3; let i=index" class="content" >
+                <th  scope="row">{{item.NumMeal}}</th>
+                <div *ngFor="let item2 of item.SelFoods" >{{item2.name}} {{item2.amount}} <span *ngIf="item2.amount>10">g</span></div>
+                <td>{{item.caloriesOfMeal}}</td>
+                <td>{{item.proteinOfMeal}}</td>
+                <td>{{item.carbOfMeal}}</td>
+                <td>{{item.fatOfMeal}}</td>
+                
+              
+              
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        <div class="daytable" *ngIf="day4.length !=0 ">
+          <h3 class="day">Day4</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Name Meal</th>
+                <th scope="col">Content Meal</th>
+                <th scope="col">Calories In Meal</th>
+                <th scope="col">Protein </th>
+                <th scope="col">Carb </th>
+                <th scope="col">Fat </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of day4; let i=index" class="content" >
+                <th  scope="row">{{item.NumMeal}}</th>
+                <div *ngFor="let item2 of item.SelFoods" >{{item2.name}} {{item2.amount}} <span *ngIf="item2.amount>10">g</span></div>
+                <td>{{item.caloriesOfMeal}}</td>
+                <td>{{item.proteinOfMeal}}</td>
+                <td>{{item.carbOfMeal}}</td>
+                <td>{{item.fatOfMeal}}</td>
+                
+              
+              
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        <div class="daytable" *ngIf="day5.length !=0 ">
+          <h3 class="day">Day5</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Name Meal</th>
+                <th scope="col">Content Meal</th>
+                <th scope="col">Calories In Meal</th>
+                <th scope="col">Protein </th>
+                <th scope="col">Carb </th>
+                <th scope="col">Fat </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of day5; let i=index" class="content" >
+                <th  scope="row">{{item.NumMeal}}</th>
+                <div *ngFor="let item2 of item.SelFoods" >{{item2.name}} {{item2.amount}} <span *ngIf="item2.amount>10">g</span></div>
+                <td>{{item.caloriesOfMeal}}</td>
+                <td>{{item.proteinOfMeal}}</td>
+                <td>{{item.carbOfMeal}}</td>
+                <td>{{item.fatOfMeal}}</td>
+                
+              
+              
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        <div class="daytable" *ngIf="day6.length !=0 ">
+          <h3 class="day">Day6</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Name Meal</th>
+                <th scope="col">Content Meal</th>
+                <th scope="col">Calories In Meal</th>
+                <th scope="col">Protein </th>
+                <th scope="col">Carb </th>
+                <th scope="col">Fat </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of day6; let i=index" class="content" >
+                <th  scope="row">{{item.NumMeal}}</th>
+                <div *ngFor="let item2 of item.SelFoods" >{{item2.name}} {{item2.amount}} <span *ngIf="item2.amount>10">g</span></div>
+                <td>{{item.caloriesOfMeal}}</td>
+                <td>{{item.proteinOfMeal}}</td>
+                <td>{{item.carbOfMeal}}</td>
+                <td>{{item.fatOfMeal}}</td>
+                
+              
+              
+              </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        <div class="daytable" *ngIf="day7.length !=0 ">
+          <h3 class="day">Day7</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Name Meal</th>
+                <th scope="col">Content Meal</th>
+                <th scope="col">Calories In Meal</th>
+                <th scope="col">Protein </th>
+                <th scope="col">Carb </th>
+                <th scope="col">Fat </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of day7; let i=index" class="content" >
+                <th  scope="row">{{item.NumMeal}}</th>
+                <div *ngFor="let item2 of item.SelFoods" >{{item2.name}} {{item2.amount}} <span *ngIf="item2.amount>10">g</span></div>
+                <td>{{item.caloriesOfMeal}}</td>
+                <td>{{item.proteinOfMeal}}</td>
+                <td>{{item.carbOfMeal}}</td>
+                <td>{{item.fatOfMeal}}</td>
+                
+              
+              
+              </tr>
+            
+            </tbody>
+          </table>
+        
+        </div>
+
+
+            <button style="margin-bottom: 2%;" (click)="AddAnotherDay()" class="anotherDay" *ngIf="day1.length == 0 || day2.length ==  0 || day3.length == 0 || day4.length == 0 || day5.length == 0 || day6.length == 0 || day7.length == 0">Add Another Day</button>
+            <br>
+            <span style="opacity: 0.6;
+            font-family: Andale Mono;"> If You Add The Same Day Diet The Old Day Will Remove </span>
+        </div>
+        
+
+
+      </div>
+      <div class="container text-center">
+        
+        <div class="borderstylyEX" > 
+      
+        <div class="daytable"  *ngIf="ExSystem.length!=0" >
+        <h3 class="day">Exercise:{{ExSystemName}}</h3>
+        <table class="table">
+          <thead>
+            <tr *ngFor="let item of ExSystem; let i=index">
+              <th scope="col">{{item.day}}</th>
+              <th (click)="ShowDataEx(i)" class="nameday" data-toggle="modal" data-target="#EXdata" scope="col">{{item.nameDay}}</th>
+            </tr>
+          </thead>
+
+        
+        </table>
+        
+
+      </div>
+      <span style="opacity: 0.6;
+      font-family: Andale Mono;">If You Add Another Exrecise The Old Will Remove </span>
+  
+
+      
+    
+    
+
+    </div>
+    </div>
+
+    </div> 
+    <div       *ngIf="day1.length ==0 && day2.length ==0 && day3.length ==0 && day4.length ==0 && day5.length ==0 && day6.length ==0 && day7.length ==0 && ExSystem.length==0 "
+    style="width: 100%;
+    height: 800px;
+    margin-left: 480px;
+    background: rgba(0, 0, 0, 0.76);
+    margin-top: 70px;" class="col-8 text-center" >
+      <button style="margin-top: 38%;
+      width: 40%;
+      margin-left: 30%;
+      color: white;
+      background:var(--maincolor);;
+      " 
+      class="form-control"
+      (click)="createplan()"
+      >
+         Create Your Plan
+
+      </button>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- //////////////////////////////////////change Profile photo//////////////////// -->
+  <div class="modal fade" id="ChangeProfilePhoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Change Profile Photo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <label class="btn btn-default"> <input type="file"
+                (change)="SelectImg($event)">
+              </label>
+               
+              <button class="btn btn-success" [disabled]="!selectedFiles"
+                              (click)="DeleteProfileImg()">Upload</button>
+                
+              
+              
+            <div *ngIf="currentFileUpload" class="progress">
+              <div class="progress-bar progress-bar-info progress-bar-striped"
+                role="progressbar" attr.aria-valuenow="{{percentage}}"
+                aria-valuemin="0" aria-valuemax="100"
+                [ngStyle]="{width:percentage+'%'}">
+                {{percentage}}%</div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary"  (click)="updateProfilePhoto()" [disabled]="percentage!=100 || load==true">Save</button>
+          <div *ngIf="percentage==100 && load==true">
+          <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+          <span >Loading...</span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      <!-- ///////////////////////change UserName//////////////////////// -->
+      <div class="modal fade" id="ChangeUserName" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Change UserName</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input class="form-control" [(ngModel)]="ChangeUserName"  type="text" placeholder="New UserName">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="updateUserName()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ///////////////////////////////// showEX/////////////////////////////////////// -->
+      <div class="container" >
+      
+            <!-- Modal -->
+            <div class="modal fade" id="EXdata" role="dialog" >
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h3>{{NameDayExSystemaData}}</h3>
+                    <button type="button" class="close"  data-dismiss="modal">&times;</button>
+                    
+                  
+                  </div>
+                  <div class="modal-body text-center" *ngFor="let item of this.ExSystemaData; let i=index">
+                    
+                    <div class="NameExEdite">
+                      EXRECISE{{i+1}}:  {{item.name}}
+                    </div>
+                    <img class="photoExselect " src="{{item.photo}}" alt="NoPhoto">
+                    
+                  
+                    
+        
+        
+                </div>
+                
+              </div>
+            </div>
+        
+          </div>
+          
+     </div>
+          <!-- ///////////////////////test//////////////////////// -->
+          <!-- <style>
+            .rooms-list li {
+          display: flex;
+          margin-bottom: 1.5em;
+          border-radius: 3px;
+          height: 84px;
+          font-size: 14.5px;
+          line-height: 24px;
+          font-family: 'open Sans', sans-serif;
+          font-weight: 400;
+          width: 103%;
+          margin-left: -15px;
+           }
+           .rooms-list {
+              padding: 0px;
+              }
+              .rooms-list .list.rooms {
+               width: 100%;
+               }
+               .rooms-list .list {
+                  display: flex;
+                  align-items: center;
+                  padding: 1em 2em;
+                  }
+                  .rooms {
+                      background-color: #ff130d;
+                      border-top-left-radius: 3px;
+                      border-bottom-left-radius: 3px;
+                      }
+                      .rooms-title {
+                          width: 70%;
+                          }
+                          .rooms-list h3 {
+                                      font-weight: 800;
+                                      margin: 0;
+                                      color: #fff;
+                                      text-transform: uppercase;
+                                      font-size: 1.875em;
+                                      text-shadow: 1px 2px 3px #675400;
+                                      }
+                                      .rooms span {
+                                      color: #17140b;
+                                      display: block;
+                                      }
+                                      .custom-room-book .prices { background-color: #ff130d;  }
+
+
+        .custom-room-book .price i { font-size: .6em; font-style: normal; }
+        .custom-room-book .price {text-shadow: 1px 2px 3px #675400; font-weight: 800; color: #fff; font-size: 3.437em; font-family: 'open Sans', sans-serif; display: flex; align-items: flex-start; width: 51%; }
+        .custom-room-book .people-number { padding-left: 1em; display: flex; }
+        .custom-room-book .tax { color: #fff; padding-left: 1em; }
+        .custom-room-book .tax span { color: #17140b; font-weight: 800; display: block; text-transform: uppercase; font-family: 'open Sans', sans-serif; }
+        .custom-room-book .tax em { font-weight: 800; font-style: normal; }
+        .custom-room-book .rooms-title { width: 70%; }
+
+        .custom-room-book .icon { width: 17px; height: 43px; background: url('../images/people-icon.png') no-repeat center center; display: inline-block; margin-left: .2em;}
+        .custom-room-book .icon:first-of-type { margin-right: 0; }
+
+        .room-book-iquiry .rooms-list{padding:0px;}
+        .room-book-iquiry .rooms-list .list.rooms { width: 100%; }
+        .room-book-iquiry .rooms-list .list.prices { width: 70%; }
+
+                  .modal-content{
+                    width: 1150px;
+                    margin-left: -62%;
+                    height: 715px;
+                    overflow: scroll;
+                    text-align: initial;
+                    border-radius: 10px;
+                    border: 8px solid #ff130d;
+                    margin-top: 13%;
+                  }
+                    .custom-room-book .tax span {
+                    color: #17140b;
+                    font-weight: 800;
+                    display: block;
+                    text-transform: uppercase;
+                    font-family: 'open Sans', sans-serif;
+                    }
+                    label {
+                  display: inline-block;
+                  max-width: 100%;
+                  margin-bottom: 5px;
+                  font-weight: bold;
+                  font-size: 13px !important;
+                  color: #ff130d;
+                  font-weight: 600 !important;
+
+                  }
+                  span.num-text-place-umrah {
+                  position: absolute;
+                  top: 34px;
+                  left: 22px;
+                  font-size: 16px !important;
+                  color: #555 !important;
+                  font-family: 'Avenir LT Std Black' !important;
+                  }
+                  .input-group-addon {
+                    
+                  padding: 6px 12px;
+                  font-size: 14px;
+                  font-weight: normal;
+                  line-height: 1;
+                  color: #555;
+                  text-align: center;
+                  background-color: #eee;
+                  border: 1px solid #ccc;
+                  border-radius: 0px 4px 4px 0px;
+
+                  }
+                  .fa{
+                    margin-top: 4px;
+                  }
+                  span.makkahtext, span.makkahtext {
+                    position: absolute;
+                      top: 35px;
+                      right: 18px;
+                      font-size: 14px;
+                  }
+
+                  ul.umrah-form-mini-ul li input.input-stay-1 {
+                      padding: 6px 12px !important;
+                  }
+                  .riTextBox{
+                    width: 170px !important;
+
+                  }
+                  .riTextBoxMakkah{
+                    margin-right: 6px;
+                  }
+                  .makkahtexttt{
+                    right: 195px !important;
+                  }
+                  .makkahtext{
+                    color: #888;
+                  }
+                  .umrah-submit-btn {
+                      margin: 30px 0px;
+                      background: #ff130d;
+                      padding: 16px 30px !important;
+                      color: #fff;
+                      font-size: 28px !important;
+                  }
+                  .paymentt{
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                  }
+                  .visacashe{margin-top: -3px;}
+/* .Paymentlapel{font-size: 25px !important;} */
+
+
+          </style> -->
+          <!-- <div class="modal fade" id="test" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                
+                <div class="modal-body">
+                  <div class="umrah-iquiry-main">
+                    <div class="container-fluid">
+                        <div class="row">
+        
+                           
+        
+                            <div class="col-md-12">
+                                
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h2>
+                                                Family Umrah Inquiry</h2>
+                                            <p><b>Note:</b> Please be sure to converse with your family before you confirm the dates in which you will be staying in Makkah and Madinah. We will prepare the quote based on your requirements.</p>
+                                        </div>
+                                    </div>
+        
+        
+                                    
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="custom-room-book room-book-iquiry">
+                                                    <ul class="rooms-list">
+                                                        <li>
+                                                            <div class="rooms list">
+                                                                <div class="rooms-title">
+                                                                    <h3>
+                                                                        quad
+                                                                    </h3>
+                                                                    <span>
+                                                                        4
+                                                                        people per room</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="prices list">
+                                                                <div class="price">$750</div>
+                                                                <div class="tax">
+                                                                    <span>per person</span>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-12">
+                                          <div class="row">
+                                            <label class="form-check-label col-md-2 ">
+                                              Gender:
+                                            </label>
+                                        <div class="form-check col-md-4">
+                                          <input class="form-check-input"  type="radio" name="exampleRadios2" id="exampleRadios1" value="male" checked>
+                                          <label class="form-check-label" for="exampleRadios1">
+                                            Male
+                                          </label>
+                                        </div>
+                                        <div class="form-check col-md-4">
+                                          <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="female" checked>
+                                          <label class="form-check-label" for="exampleRadios2">
+                                          Female    
+                                        </label>
+                                        </div>
+                                      </div>
+        
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    Your Last Name 
+                                                </label>
+                                                <input name="txtLastName_umrah" type="text" maxlength="20" id="txtLastName_umrah" class="form-control" placeholder="As on Passport">
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    Your First Name
+                                                </label>
+                                                <input name="txtFirstName_umrah" type="text" maxlength="20" id="txtFirstName_umrah" class="form-control" placeholder="As on Passport">
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    Contact Number 
+                                                </label>
+                                                <span id="txtContactNo_umrah_wrapper" class="RadInput RadInput_Default" style="white-space:normal;"><input type="text" size="20" value="    ___ ___ ____" id="txtContactNo_umrah_text" name="txtContactNo_umrah_text" class="riTextBox riEnabled form-control contct-no-input" selectionlength="0" placeholder="(xxx) xxx xxxx" style="width:100%;">
+                                                  <input style="visibility:hidden;margin:-18px 0 0 -1px;width:1px;height:1px;overflow:hidden;border:0;padding:0;" id="txtContactNo_umrah" value="  " class="rdfd_" type="text" title="">
+                                                  </span>
+                                                <span class="num-text-place-umrah">+1</span>
+        
+                                            </div>
+                                        </div>
+        
+        
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    Passports 
+                                                </label>
+                                                <select name="ddlPassport_Umrah" id="ddlPassport_Umrah" class="form-control">
+                                                <option value="US/Canadian">US/Canadian</option>
+                                                <option value="Indian/Pakistani">Indian/Pakistani</option>
+                                                <option value="Bangladeshi">Bangladeshi</option>
+                                                <option value="Other Nationality">Other Nationality</option>
+                                              
+                                              </select>
+                                            </div>
+                                        </div>
+        
+        
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    E-mail Address
+                                                </label>
+                                                <input name="txtExmailAddress_umrah" type="text" maxlength="100" id="txtExmailAddress_umrah" class="form-control" placeholder="example@yahoo.com">
+        
+                                            </div>
+                                        </div>
+        
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    Where Are You Traveling From?
+                                                </label>
+                                                <input name="txtTravlFrm_umrah" type="text" maxlength="15" id="txtTravlFrm_umrah" class="form-control" placeholder="Enter City or Airport code">
+                                            </div>
+                                        </div>
+        
+                                    </div>
+        
+        
+                                    <div class="row">
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="youremail">
+                                                    Departure Date
+                                                </label>
+                                                <div id="datepicker" class="date-pick input-group date" data-date-format="mm/dd/yyyy">
+        
+        
+                                                    <input name="CalTenDeptDate_umrah" type="text" id="CalTenDeptDate_umrah" class="date-pick form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy">
+        
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="youremail">
+                                                    Return Date
+                                                </label>
+                                                <div id="datepicker" class="date-pick input-group date" data-date-format="mm/dd/yyyy">
+        
+        
+                                                    <input name="CalTenReturnDate_umrah" type="text" id="CalTenReturnDate_umrah" class="date-pick form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy">
+        
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    Are you flexible?
+                                                </label>
+                                                <select name="ddlflexible" id="ddlflexible" class="form-control">
+                                                <option value="">Select</option>
+                                                <option value="+/- 2 to 3 days">+/- 2 to 3 days</option>
+                                                <option value="No">No</option>
+                                              
+                                              </select>
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Brief Your Travel Plan</label>
+                                                <textarea name="txtPlanTravelTrip" rows="2" cols="20" id="txtPlanTravelTrip" class="form-control txt-area-input"></textarea>
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    Want to tavele first?
+                                                </label>
+                                                <select name="ddlTravelFirst" id="ddlTravelFirst" class="form-control">
+                                                <option value="">Select</option>
+                                                <option value="Makkhah">Makkhah</option>
+                                                <option value="Madinah">Madinah</option>
+                                              
+                                              </select>
+                                            </div>
+                                        </div>
+        
+        
+        
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    Nights to stay
+                          
+                                                </label>
+        
+        
+                                                <ul class="umrah-form-mini-ul list-inline row" >
+                                                    <li class="makkah-stay-li">
+                                                        <span id="txtstaymakkah_wrapper" class="RadInput RadInput_Default" style="white-space:normal;">
+                                                          <input type="text" maxlength="2" id="txtstaymakkah_text" name="txtstaymakkah_text" class="riTextBox riTextBoxMakkah riEnabled form-control input-stay-1" placeholder="1 to 30" style="width:125px;">
+                                                         </span>
+                                                        <span class="makkahtext makkahtexttt">Makkah</span>
+                                                        <span id="RequiredFieldValytyidator3" class="requird-text" style="display:none;">* Required</span>
+                                                    </li>
+                                                    <li class="madina-stay-li">
+                                                        <span id="txtstayMadinah_wrapper" class="RadInput RadInput_Default" style="white-space:normal;">
+                                                          <input type="text" maxlength="2" id="txtstayMadinah_text" name="txtstayMadinah_text" class="riTextBox riEnabled form-control input-stay-1" placeholder="1 to 30" style="width:125px;">
+                                                          </span>
+                                                        <span class="makkahtext">Madinah </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+        
+        
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>
+                                                    What is your Budget per peson?
+                                                </label>
+                                                <span id="txtBudget_wrapper" class="RadInput RadInput_Default" style="white-space:normal;">
+                                                  <input type="text" value="$0.00" id="txtBudget_text" name="txtBudget_text" class="riTextBox riEnabled form-control" style="width:100%;">
+                                                  </span>
+                                            </div>
+                                        </div>
+        
+        
+                                    </div>
+        
+                                    <div id="UpdatePanel1">
+          
+        
+                                            <div class="row">
+        
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Are you traveling alone?
+                                                        </label>
+                                                        <select name="ddltravelingalone"  id="ddltravelingalone" class="form-control">
+                                                        <option selected="selected" value="">Select</option>
+                                                        <option value="Yes">Yes</option>
+                                                        <option value="No">No</option>
+                                                    
+                                                      </select>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+        
+                                            
+                                        
+                                        </div>
+                                              <div class="row col-md-4 paymentt">
+                                                <label class="Paymentlapel form-check-label col-md-2 ">
+                                                  Payment:
+                                                </label>
+                                            <div class="form-check visacashe col-md-4">
+                                              <input class="form-check-input"  type="radio" name="exampleRadios4" id="exampleRadios3" value="male" checked>
+                                              <label class="form-check-label" for="exampleRadios1">
+                                                Visa
+                                              </label>
+                                            </div>
+                                            <div class="form-check col-md-4 visacashe">
+                                              <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios2" value="female" checked>
+                                              <label class="form-check-label" for="exampleRadios4">
+                                              Cashe    
+                                            </label>
+                                            </div>
+                                          </div>
+        
+        
+        
+                                    <div class="row">
+                                  
+        
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                
+        
+                                                <input type="button" name="btnUmrahSubmit" value="Submit"  id="btnUmrahSubmit" class="btn btn-lg umrah-submit-btn">
+                                            </div>
+                                        </div>
+                                    </div>
+        
+        
+                            </div>
+                        </div>
+        
+                    </div>
+                </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+          <!-- ////////////////////////////////////////////// -->
+       

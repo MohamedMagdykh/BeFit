@@ -1,0 +1,231 @@
+:root{
+    
+    --maincolor: var(--maincolor);
+} 
+// .col-lg-12{
+//     margin-top: 16%;
+//     margin-bottom: 8%;
+//     .AddBtn{
+
+       
+//         background-color: var(--maincolor) ;
+//         color: white;
+//         width: 100%;
+//         height: 3em;
+        
+//         font-size: 20px;
+    
+    
+//     }
+//     .SearchInput{
+//         border-radius: 0 4px 4px 0;
+//         border-left: none;
+//         height: 3.8em;
+//         padding: 1rem 0;
+//         width: 75%;
+ 
+//         &:focus{
+//             border-color: var(--maincolor);
+//             box-shadow:none;
+//         }
+     
+//     }
+//     .SearchBtn{
+//         border-radius: 4px 0 0 4px;
+//         width: 25%;
+//         background-color: var(--maincolor) ;
+//         color: white;
+        
+//         height: 3.8em;
+//         border-right: none;
+    
+//     }
+// }
+// .CaptionSearch{
+//     margin-left: 20%;
+    
+//     h5{
+//         margin-left: 18%;
+//         margin-top: 2%;
+//         font-size: 2rem;
+//     }
+//     h6{
+//         margin-top: 2%;
+//         font-size: 1rem;
+//         font-weight: 400;
+//         line-height: 1.75;
+//     }
+
+// }
+.Exrecisecomponent{
+    padding-right: 28px;
+    margin-top: 6%;
+    .col-3{
+        position: fixed;
+    }
+    .active{
+        background: var(--maincolor);
+        border-color: var(--maincolor);
+        color: white;
+        .fa-plus{
+            color: white;
+          
+        }
+    }
+    .EXshow{
+        margin-left: 25%;
+        // margin-top: -196px;
+
+        box-shadow: 0 0 .375rem .13125rem rgba(0,0,0,.08);
+        height: auto;
+        width: 100%;
+      .btn-select{
+        width: 30%;
+        background: var(--maincolor);
+        color: white;
+        margin-bottom: 42px;
+        height: 47px;
+        transform: perspective(1px) translateZ(0);
+        margin-top: -23px;
+        margin-bottom: 80px;
+       
+            &:hover{
+                animation-name: btn-select;
+                animation-duration: 0.15s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
+        
+        
+      }
+        h2{
+            margin-top: 34px;
+            width: 1080px;
+            background:var(--maincolor);
+            height: 60px;
+            padding-top: 11px;
+            color: white;
+            margin-left: -14px;
+            margin-bottom: 100px;
+        }
+        span{
+            font-size: 30px;
+            font-style: italic;
+        }
+        h3{
+            margin-top: 100px;
+            margin-bottom: 100px;
+            background:var(--maincolor);
+            width: 300px;
+            margin-left: 38%;
+            height: 50px;
+            padding-top: 8px;
+            color: white;
+        }
+        img{
+            width: 600px;
+            height: 450px;
+            margin-top: 30px;
+            margin-bottom: 200px;
+            box-shadow: 0 0 0.375rem 0.13125rem rgba(0, 0, 0, 0.08);
+        }
+      
+    
+    }
+    .formAddEx{
+        box-shadow: 0 0 .375rem .13125rem rgba(0,0,0,.08);
+        margin-left: 25%;
+        padding-left: 215px;
+        .nameExrecise{
+            margin-top: 5%;
+            width: 77%;
+            margin-bottom: 5%;
+            // padding-left: 14pc;
+            
+        }
+        .imgEx{
+            width: 300px;
+            height: 200px;
+            background-size: 100% 100%;
+            margin-left: 23%;
+        }
+        .formImg{
+            margin-left: 8%;
+            margin-top: 5%;
+        }
+        .btn-addEx{
+            width: 30%;
+            background: var(--maincolor);
+            color: white;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            margin-left: 23%;
+            &:disabled{
+                opacity: 0.5;
+            }
+    
+            
+        }
+        .btn-SaveEx{
+            width: 40%;
+            background-color: var(--maincolor);
+            color: white;
+            margin-top: 3%;
+            margin-left: 18%;
+            &:disabled{
+                opacity: 0.5;
+            }
+    
+    
+        }
+        .describe{
+    
+             width: 77%;
+             margin-top: 5%;
+        }
+    }
+ 
+}
+.fa-plus{
+    color: var(--maincolor);
+  
+}
+
+.progress{
+    margin-right: 44%;
+    margin-top: 5%;
+
+
+}
+.DaysSelection{
+    background:var(--maincolor);
+    color: white;
+    width: 30%;
+    height: 40px;
+    margin-left: 21%;
+    margin-top: 3%;
+}
+.numExAdd{
+    margin-left: 28%;
+}
+.load{
+    margin-top: 3%;
+}
+.trash1{
+    
+    margin-left: 28%;
+    margin-top: 16px;
+}
+.NameExEdite{
+    margin-left: 5%;
+    margin-top: 12px;
+}
+.photoExselect{
+    width: 90px;
+    height: 50px;
+    background-size: 100% 100%;
+    margin-left: 60px;
+}
+.alert-danger{
+    width: 77%;
+}

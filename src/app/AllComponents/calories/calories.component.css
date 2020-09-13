@@ -1,0 +1,44 @@
+:root {
+  --maincolor: var(--maincolor);
+}
+
+form {
+  width: 101%;
+  margin-top: 8%;
+}
+
+form .container h1 {
+  margin-bottom: 6%;
+  color: var(--maincolor);
+}
+
+form .container .form-check, form .container .form-group {
+  padding-bottom: 2%;
+}
+
+form .container .Activity {
+  font-size: 16px;
+}
+
+form .container .cal {
+  background-color: var(--maincolor);
+  color: white;
+  width: 55%;
+  padding: 1.3%;
+}
+
+.result {
+  font-size: 35px;
+  color: var(--maincolor);
+  margin-top: 4%;
+  margin-left: 20%;
+}
+
+.BtnDiet {
+  background-color: var(--maincolor);
+  margin-top: 4.5%;
+  color: white;
+  margin-left: 5%;
+  width: 25%;
+}
+/*# sourceMappingURL=calories.component.css.map */

@@ -1,0 +1,149 @@
+:root {
+  --maincolor: var(--maincolor);
+}
+
+.col-lg-12 {
+  margin-top: 16%;
+  margin-bottom: 8%;
+}
+
+.col-lg-12 .AddBtn {
+  background-color: var(--maincolor);
+  color: white;
+  width: 100%;
+  height: 3em;
+  font-size: 20px;
+}
+
+.col-lg-12 .SearchInput {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+  height: 3.8em;
+  padding: 1rem 0;
+  width: 75%;
+}
+
+.col-lg-12 .SearchInput:focus {
+  border-color: var(--maincolor);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.col-lg-12 .SearchBtn {
+  border-radius: 4px 0 0 4px;
+  width: 25%;
+  background-color: var(--maincolor);
+  color: white;
+  height: 3.8em;
+  border-right: none;
+}
+
+.CaptionSearch {
+  margin-left: 20%;
+}
+
+.CaptionSearch h5 {
+  margin-left: 18%;
+  margin-top: 2%;
+  font-size: 2rem;
+}
+
+.CaptionSearch h6 {
+  margin-top: 2%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.Exrecisecomponent {
+  margin-top: 10%;
+}
+
+.Exrecisecomponent .active {
+  background: var(--maincolor);
+  border-color: var(--maincolor);
+  color: white;
+}
+
+.Exrecisecomponent .active .fa-plus {
+  color: white;
+}
+
+.fa-plus {
+  color: var(--maincolor);
+}
+
+.formAddEx {
+  margin-left: 17%;
+}
+
+.formAddEx .nameExrecise {
+  margin-top: 5%;
+  width: 77%;
+  margin-bottom: 5%;
+}
+
+.formAddEx .imgEx {
+  width: 300px;
+  height: 200px;
+  background-size: 100% 100%;
+  margin-left: 23%;
+}
+
+.formAddEx .formImg {
+  margin-left: 17%;
+  margin-top: 5%;
+}
+
+.formAddEx .btn-addEx {
+  width: 30%;
+  background: var(--maincolor);
+  color: white;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  margin-left: 23%;
+}
+
+.formAddEx .btn-addEx:disabled {
+  opacity: 0.5;
+}
+
+.formAddEx .btn-SaveEx {
+  width: 40%;
+  background-color: var(--maincolor);
+  color: white;
+  margin-top: 3%;
+  margin-left: 18%;
+}
+
+.formAddEx .btn-SaveEx:disabled {
+  opacity: 0.5;
+}
+
+.formAddEx .describe {
+  width: 77%;
+  margin-top: 5%;
+}
+
+.progress {
+  margin-right: 44%;
+  margin-top: 5%;
+}
+
+.DaysSelection {
+  background: var(--maincolor);
+  color: white;
+  width: 30%;
+  height: 40px;
+  margin-left: 21%;
+  margin-top: 3%;
+}
+
+.numExAdd {
+  margin-left: 28%;
+}
+
+.load {
+  margin-top: 3%;
+}
+/*# sourceMappingURL=exrecise.component.css.map */

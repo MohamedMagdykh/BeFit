@@ -1,0 +1,169 @@
+:root{
+    
+    --maincolor: var(--maincolor);
+} 
+
+
+   
+.col-lg-12{
+    margin-top: 16%;
+    margin-bottom: 8%;
+    .AddBtn{
+
+       
+        background-color: var(--maincolor) ;
+        color: white;
+        width: 100%;
+        height: 3em;
+        
+        font-size: 20px;
+    
+    
+    }
+    .SearchInput{
+        border-radius: 0 4px 4px 0;
+        border-left: none;
+        height: 3.8em;
+        padding: 1rem 0;
+        width: 75%;
+ 
+        &:focus{
+            border-color: var(--maincolor);
+            box-shadow:none;
+        }
+     
+    }
+    .SearchBtn{
+        border-radius: 4px 0 0 4px;
+        width: 25%;
+        background-color: var(--maincolor) ;
+        color: white;
+        
+        height: 3.8em;
+        border-right: none;
+    
+    }
+}
+
+
+.CaptionSearch{
+    margin-top: 4%;
+    margin-left: 25%;
+    
+    h5{
+        margin-top: 2%;
+        font-size: 2rem;
+    }
+    h6{
+        margin-top: 2%;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.75;
+    }
+
+}
+
+.modal-content{
+.modal-body{
+    input{
+        margin-top: 5%;
+    }
+   
+ }
+ .BtnAddFoodModel{
+    background:var(--maincolor) ;
+    color: white;
+}
+.h3{
+    color:var(--maincolor) ;
+
+}
+}
+.Getfoods{
+    box-shadow:         2px 2px 12px 3px #ccc;
+
+    transition: all .2s ease-in-out;
+    .card-img-top{
+        height: 196px;
+    }
+    &:hover{
+        transform: scale(1.1);
+    }
+    margin: 4% 0 4% 20%;
+    border-bottom: 1px solid #eeeeee;
+    .card-body{
+        margin-top: -17%;
+        padding-bottom: 3%;
+        height: 268px;
+
+         h5{
+        
+            color: var(--maincolor) ;
+           }
+        h6{
+            margin-top: -9%;
+            margin-bottom: 0%;
+
+           color: var(--maincolor) ;
+           opacity: 0.8;
+           font-size: 1.3rem;
+    
+        }
+        p{
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+        .btn{
+            background-color: var(--maincolor) ;
+            border-color: var(--maincolor) ;
+            width: 100%;
+            color: white;
+            
+          
+        } 
+    }
+    
+}
+.progress{
+    margin-bottom: 4%;
+}
+.calories{
+    background-color: var(--maincolor);
+    margin-top: 300px;
+    position: fixed;
+    z-index: 99999;
+    width: 20%;
+    height: auto;
+    padding-top: 1%;
+    left: 0px;
+    span,div{
+        color: white;
+    }
+    span{
+        margin-bottom:5% ;
+    }
+    .btn-savemeal{
+        width: 60%;
+        background-color: white;
+        margin-bottom: 2%;
+        margin-top: 2%;
+        color: var(--maincolor);
+        
+       
+    }
+    .meals,.addfoods{
+        margin-bottom: 2%;
+    }
+    .meals{
+        background-color:var(--maincolor); ;
+        color: white;
+    }
+
+    
+}
+.ngx-pagination {
+    margin-left: 49%!important;
+    margin-bottom: 1rem;
+    margin-top: 2;
+    }
+    

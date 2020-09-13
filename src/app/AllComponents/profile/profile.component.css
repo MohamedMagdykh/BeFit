@@ -1,0 +1,108 @@
+:root {
+  --maincolor: var(--maincolor);
+}
+
+.info {
+  margin-top: 10%;
+}
+
+.info .container {
+  padding-left: 15%;
+  margin-right: 15%;
+}
+
+.info .container .row {
+  -webkit-box-shadow: 8px 8px 10px 10px whitesmoke;
+          box-shadow: 8px 8px 10px 10px whitesmoke;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.info .container .row .BtnChange {
+  background-color: var(--maincolor);
+  color: white;
+  width: 30%;
+  margin-left: 3%;
+}
+
+.info .container .row img {
+  margin-left: 20px;
+  width: 300px;
+  height: 300px;
+  background-size: 100% 100%;
+  margin-bottom: 13%;
+}
+
+.info .container .row .username {
+  padding-top: 7%;
+  padding-left: 10%;
+  font-size: 25px;
+}
+
+.info .container .row .username i {
+  margin-left: 15%;
+}
+
+.info .container .row .username i:hover {
+  color: var(--maincolor);
+}
+
+.info .container .row .username .e-mail {
+  margin-top: 10%;
+}
+
+.changepass, .plan {
+  margin-top: 5%;
+  -webkit-box-shadow: 8px 8px 10px 10px whitesmoke;
+          box-shadow: 8px 8px 10px 10px whitesmoke;
+  margin-left: 13.5%;
+  margin-right: 15%;
+  padding-top: 3%;
+  padding-bottom: 2%;
+}
+
+.changepass h2, .plan h2 {
+  margin-bottom: 4%;
+  color: var(--maincolor);
+}
+
+.changepass input, .plan input {
+  margin-bottom: 3%;
+  width: 80%;
+  margin-left: 10%;
+  height: 7%;
+}
+
+.changepass button, .plan button {
+  background-color: var(--maincolor);
+  width: 50%;
+  color: white;
+  margin-left: 25%;
+  height: 6%;
+}
+
+.changepass .content, .plan .content {
+  border-top: 1px solid #dee2e6;
+}
+
+.changepass .fa-pencil, .plan .fa-pencil {
+  margin-top: 4%;
+}
+
+.changepass .fa-pencil:hover, .plan .fa-pencil:hover {
+  color: var(--maincolor);
+}
+
+.changepass .anotherDay, .plan .anotherDay {
+  background-color: var(--maincolor);
+  color: white;
+  border-color: var(--maincolor);
+  margin-right: 25%;
+  margin-top: 10%;
+}
+
+.changepass .anotherDay:hover, .plan .anotherDay:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+/*# sourceMappingURL=profile.component.css.map */

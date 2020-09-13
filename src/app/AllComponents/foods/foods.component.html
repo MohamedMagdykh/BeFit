@@ -1,0 +1,474 @@
+<div class="col-12">
+  <div class="row">
+    <div class="col-2">
+      <div class="calories text-center" *ngIf=" this.percentageForBody.ReqCalories!=0">
+        <div class="row" style="margin-left: 12px;">
+          <div style="margin-right: 20px;">
+            <span  >Calories</span>
+            <br>
+           <span > {{percentageForBody.ReqCalories}} </span>
+          </div>
+          <div style="margin-right: 20px;">
+            <span >protein</span>
+            <br>
+           <span > {{percentageForBody.protein}}G </span>
+          </div>
+          <div style="margin-right: 20px;">
+            <span>Carbs</span>
+            <br>
+           <span > {{percentageForBody.carb}}G </span>
+          </div>
+          
+          <div style="margin-right: 20px;">
+            <span >Fat</span>
+            <br>
+           <span > {{percentageForBody.fats}}G </span>
+          </div>
+
+        </div>
+   
+     
+        <select style="margin-top: 10px;" class="meals"  [(ngModel)]="NumDay" name="day"  >
+          <option disabled >Choose Day</option>
+          <option *ngFor="let item of NumDays">{{item}}</option>
+          
+    </select>
+        <select class="meals"  [(ngModel)]="NumMeal" name="meals" *ngIf="NumDay!='Choose Day'"  >
+          <option disabled >Choose Num Meal</option>
+          <option *ngFor="let item of nummeals">{{item}}</option>
+          
+    </select>
+    <div class="addfoods" *ngIf="Diets.length==0 && NumMeal != 'Choose Num Meal' ">
+      Add Foods
+    </div>
+         
+        <div  *ngIf="Diets.length!=0">
+       
+        <li *ngFor="let item of Diets">{{item.name}} {{item.amount}}<span *ngIf="item.amount>10">g</span> </li>
+        <button class="form-contro btn-savemeal" (click)="SaveThisMeal()">Add This Meal</button> <br>
+        
+      </div>
+      <button class="form-contro btn-savemeal" *ngIf="allmeals.length!=0" data-toggle="modal" data-target="#meals">Check Your Meals</button> 
+
+      
+      
+        
+      </div>
+
+    </div>
+    <div class="col-10">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+              <div class="col-lg-8">
+                <div class="row">
+                  <button class="SearchBtn form-control input-lg" type="submit" (click)="Getfoods()" >
+                    <i class="fa fa-search fa-2x " aria-hidden="true"></i>
+                  </button>
+                  <input type="search" [(ngModel)]="Searchfoods" (ngModelChange)= "Getfoods()"
+                  placeholder="     Search for a food, brand, or restaurant" maxlength="45" class="SearchInput form-control input-lg" >
+                 </div>
+                </div>
+              <div class="col-lg-4">
+                <div class="text-center">
+                  <button class="AddBtn form-control input-lg btn-center" data-toggle="modal" data-target="#myModal" type="submit">Add Food</button>
+                </div>
+              </div>
+            </div> 
+            </div>
+      
+      
+               <div class="CaptionSearch text-center" *ngIf="DatafoodsName.length == 0 ">
+                  <img class="jss60" alt="Food Search" src="assets/FoodHighlightCalories.jpg">
+                  <h5 >Food Analysis</h5>
+                  <h6 >Understand how the food you’re eating contributes to your 
+                      daily <br>calories ,
+                  macronutrients, and micronutrients.</h6>
+                </div>
+      
+                
+                <div class="col-lg-4 " *ngFor="let item of DatafoodsName| paginate: { itemsPerPage: pageSize, currentPage: pageNumber } ;index as i;">
+                  <div class="row">
+                <div class="card Getfoods" style="width: 18rem;" >
+                  <img class="card-img-top" src="{{item.url}}" alt="Card image cap">
+                  <div class="card-body">
+                    <div class="col-lg-12 ">
+                    <div class="row">
+                      <div class="col-lg-9 ">
+                        
+                    <h5 class="card-title" *ngIf="item.TypeFood == 'Amount'">{{item.NameFoods}} (100g)</h5>
+                    <h5 class="card-title" *ngIf="item.TypeFood == 'Count'">  {{item.NameFoods}} (One)</h5>
+                  </div>
+                  <div class="col-lg-1 ">
+                    <i class="fa fa-trash fa-lg" aria-hidden="true" (click)="DeleteFood(item.id,i)"></i> 
+                  </div>
+                  <div class="col-lg-1 ">
+                    <i class="fa fa-pencil fa-lg" aria-hidden="true" data-toggle="modal" data-target="#myModal2" (click)="ShowUpdateData(item.id,i)"></i>
+                  </div>
+                </div>
+                </div>
+                    <h6>calories: {{item.calories}}</h6>
+                    <p class="card-text">•Carbs: {{item.Carbs}} g <br>•Fat: {{item.Fat}} g <br> •Protein: {{item.Protein}} g </p>
+                    <a *ngIf="item.TypeFood == 'Amount'" data-toggle="modal" data-target="#calories" (click)="inde(i)" class="btn btn-primary">Add To Meal</a>
+                    <a *ngIf="item.TypeFood == 'Count'" data-toggle="modal" data-target="#calories2" (click)="inde(i)" class="btn btn-primary">Add To Meal</a>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+        </div>
+      
+
+      </div>
+
+      </div>
+      
+      
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- //////////////////////////////////////////AddModel////////////////////////////////////////////// -->
+<form #loginForm="ngForm">
+<div class="container" >
+  
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog" >
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Add Food</h3>
+            <button type="button" class="close" (click)="ClearData()" data-dismiss="modal">&times;</button>
+            
+           
+          </div>
+          <div class="modal-body">
+            <input type="text"  
+            placeholder="Name Food" maxlength="50" 
+            class="form-control input-lg text-center" name="name" [(ngModel)]="Namefoods" required minlength="3" #name="ngModel" >
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+               class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+              Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+              Name must be at least 3 characters long.
+            </div>
+          </div>
+
+            <input type="number" 
+            placeholder="calories" maxlength="3" 
+            class="form-control input-lg text-center" name="name1"[(ngModel)]="calories"required  #cal="ngModel" > 
+                    <div *ngIf="cal.invalid && (cal.dirty || cal.touched)"
+                          class="alert alert-danger">
+                      <div *ngIf="cal.errors.required">
+                        calories is required and must be num.
+                      </div>
+                    </div>
+            <input type="number" 
+            placeholder="Protein" maxlength="3" 
+            class="form-control input-lg text-center" name="name2"[(ngModel)]="Protein" required  #Pro="ngModel">
+                 <div *ngIf="Pro.invalid && (Pro.dirty || Pro.touched)"
+                      class="alert alert-danger">
+                  <div *ngIf="Pro.errors.required">
+                    Protein is required and must be num.
+                  </div>
+                </div>
+            <input type="number" 
+            placeholder="Carbs" maxlength="3" 
+            class="form-control input-lg text-center" name="name3" [(ngModel)]="Carbs" required minlength="0" #Carb="ngModel">
+                  <div *ngIf="Carb.invalid && (Carb.dirty || Carb.touched)"
+                        class="alert alert-danger">
+                    <div *ngIf="Carb.errors.required">
+                      Carbs is required and must be num.
+                    </div>
+                  </div>
+            <input type="number" 
+            placeholder="Fat" maxlength="3" 
+
+            class="form-control input-lg text-center" name="name4" [(ngModel)]="Fat" required minlength="0" #Fats="ngModel">
+                    <div *ngIf="Fats.invalid && (Fats.dirty || Fats.touched)"
+                          class="alert alert-danger">
+                      <div *ngIf="Fats.errors.required">
+                        Fats is required and must be num.
+                      </div>
+                    </div>
+          
+                    <div class="text-center">
+                      <label for="Type" style="margin-right: 20px;">Type Foods:</label>
+
+                      <input [(ngModel)]="TypeFood" type="radio" id="count" name="count" value="Count">
+                      <label for="count" style="margin-right: 30px;">Count</label>
+                      <input [(ngModel)]="TypeFood" type="radio" id="Amount" name="gender" value="Amount">
+                      <label for="Amount">Amount</label><br>
+
+                    </div>
+            <label class="btn btn-default"> <input type="file"
+              (change)="SelectImg($event)">
+            </label>
+             
+            <button class="btn btn-success" [disabled]="!selectedFiles || !loginForm.valid"
+              (click)="AddImgFood()">Upload</button>
+              
+            
+          
+          <div *ngIf="currentFileUpload" class="progress">
+            <div class="progress-bar progress-bar-info progress-bar-striped"
+              role="progressbar" attr.aria-valuenow="{{percentage}}"
+              aria-valuemin="0" aria-valuemax="100"
+              [ngStyle]="{width:percentage+'%'}">
+              {{percentage}}%</div>
+          </div>
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" (click)="ClearData()" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-default BtnAddFoodModel"  [disabled]="!loginForm.valid || percentage!=100 || load==true" data-dismiss="modal" (click)="addfood()" >ADD</button>
+            <div *ngIf="percentage==100 && load==true">
+              <i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+              <span >Loading...</span>
+            </div>
+          </div>
+
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+</form>
+<!-- //////////////////////////////////////////UpdateModel////////////////////////////////////////////// -->
+
+<form #UpdateForm="ngForm">
+  <div class="container" >
+    
+      <!-- Modal -->
+      <div class="modal fade" id="myModal2" role="dialog" >
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Update Food</h3>
+              <button type="button" class="close" (click)="ClearData()" data-dismiss="modal">&times;</button>
+              
+             
+            </div>
+            <div class="modal-body">
+              <input type="text"  
+              placeholder="Name Food" maxlength="50" 
+              class="form-control input-lg text-center" name="name" [(ngModel)]="Namefoods" required minlength="3" #name="ngModel" >
+              <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="name.errors.required">
+                Name is required.
+              </div>
+              <div *ngIf="name.errors.minlength">
+                Name must be at least 3 characters long.
+              </div>
+            </div>
+  
+              <input type="number" 
+              placeholder="calories" maxlength="3" 
+              class="form-control input-lg text-center" name="name1"[(ngModel)]="calories"required  #cal="ngModel" > 
+                      <div *ngIf="cal.invalid && (cal.dirty || cal.touched)"
+                            class="alert alert-danger">
+                        <div *ngIf="cal.errors.required">
+                          calories is required and must be num.
+                        </div>
+                      </div>
+              <input type="number" 
+              placeholder="Protein" maxlength="3" 
+              class="form-control input-lg text-center" name="name2"[(ngModel)]="Protein" required  #Pro="ngModel">
+                   <div *ngIf="Pro.invalid && (Pro.dirty || Pro.touched)"
+                        class="alert alert-danger">
+                    <div *ngIf="Pro.errors.required">
+                      Protein is required and must be num.
+                    </div>
+                  </div>
+              <input type="number" 
+              placeholder="Carbs" maxlength="3" 
+              class="form-control input-lg text-center" name="name3" [(ngModel)]="Carbs" required minlength="0" #Carb="ngModel">
+                    <div *ngIf="Carb.invalid && (Carb.dirty || Carb.touched)"
+                          class="alert alert-danger">
+                      <div *ngIf="Carb.errors.required">
+                        Carbs is required and must be num.
+                      </div>
+                    </div>
+              <input type="number" 
+              placeholder="Fat" maxlength="3" 
+  
+              class="form-control input-lg text-center" name="name4" [(ngModel)]="Fat" required minlength="0" #Fats="ngModel">
+                      <div *ngIf="Fats.invalid && (Fats.dirty || Fats.touched)"
+                            class="alert alert-danger">
+                        <div *ngIf="Fats.errors.required">
+                          Fats is required and must be num.
+                        </div>
+                      </div>
+                
+              
+            </div>
+           
+             
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" (click)="ClearData()">Close</button>
+              <button type="submit" class="btn btn-default BtnAddFoodModel"  [disabled]="!UpdateForm.valid" data-dismiss="modal" (click)="updatefood()" >Update</button>
+            
+            </div>
+          </div>
+          
+        </div>
+      </div>
+  
+    </div>
+  
+  </form>
+  <!-- ///////////////////////////////////////////////////////cal calories//////////////////////////////////// -->
+  
+    <div class="container" >
+      
+        <!-- Modal -->
+        <div class="modal fade" id="calories" role="dialog" >
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3>Add Grams</h3>
+                <button type="button" class="close"  data-dismiss="modal">&times;</button>
+                
+               
+              </div>
+              <div class="modal-body">
+                <input type="number" class="form-control" name="grams" placeholder="How Much Grams Need" [(ngModel)]="NumGrams">
+
+
+            </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default BtnAddFoodModel"   data-dismiss="modal" (click)="CurrentcaloriesAmount()" >ADD</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    
+      </div>
+        <!-- ///////////////////////////////////////////////////////cal calories//////////////////////////////////// -->
+  
+    <div class="container" >
+      
+      <!-- Modal -->
+      <div class="modal fade" id="calories2" role="dialog" >
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3>Add Count</h3>
+              <button type="button" class="close"  data-dismiss="modal">&times;</button>
+              
+             
+            </div>
+            <div class="modal-body">
+              <input type="number" class="form-control" name="grams" placeholder="Count You Need" [(ngModel)]="NumGrams">
+
+
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-default BtnAddFoodModel"   data-dismiss="modal" (click)="CurrentcaloriesCount()" >ADD</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+  
+    </div>
+      
+      <!---===============================start Pagination===========================-->
+      <div style="margin-top: 3%;margin-left: 51%;">
+        <pagination-controls  (pageChange)="pageNumber = $event"></pagination-controls>
+        <div class="form-group options pages" style="float:left;
+        margin-top: -39px;">
+          <div class="input-group input-group-sm">
+            <select [(ngModel)]="pageSize" name="pageChangedName" >
+                   <option>3</option>
+                  <option>6</option>
+                  <option>9</option>
+                  <option>12</option>
+                  <option>15</option>
+                  <option>18</option>
+            </select>
+          </div>
+        </div>
+        </div>                 
+  <!-- ///////////////////////////////////////////////////////Meals//////////////////////////////////// -->
+  
+  <div class="container" >
+      
+    <!-- Modal -->
+    <div class="modal fade" id="meals" role="dialog" >
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Meals Select</h3>
+            <button type="button" class="close"  data-dismiss="modal">&times;</button>
+            
+           
+          </div>
+          <div class="modal-body" *ngFor="let item of allmeals ; let i=index">
+            <div class="col-12">
+              <div class="row">
+             
+              <div class="col-10">
+                    <h3>{{item.NumMeal}}</h3>
+
+                    <div *ngFor="let item2 of item.SelFoods">{{item2.name}} {{item2.amount}}</div>
+
+              </div>
+              <div class="col-2">
+                <i class="fa fa-trash fa-lg" aria-hidden="true" (click)="removeMeals(i)"></i> 
+                
+
+              </div>
+              <div style="
+              font-size: 13px;
+              margin-top: 25px;
+              margin-left: 15px;
+              color:var(--maincolor);
+              " *ngIf="percentageForBody.ReqCalories>100">
+                Note: To Save Your Meals The Rest Of The Calories Must less than 100
+              </div>
+
+          </div>
+        </div>
+        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-default BtnAddFoodModel" (click)="finish()" [disabled]="percentageForBody.ReqCalories>100"   data-dismiss="modal"  >ADD Meals</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+
+<!-- <button (click)="Test()">teeeeeeest</button> -->
+
+  
+  
