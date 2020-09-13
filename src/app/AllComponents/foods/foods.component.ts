@@ -239,14 +239,18 @@ AddImgFood() {
 
  DeleteFood(id: string,index) {
   this.foodsSer.Delete_Foods(id);
-  // console.log(this.DatafoodsName[index])
-  for (let i = 0; i < this.fileUploads.length; i++) {
-    if(this.fileUploads[i].url==this.DatafoodsName[index].url ){
-console.log(this.fileUploads[i])
-      this.DeleteImg(this.fileUploads[i])
+  for (let j = 0; j < this.DatafoodsName.length; j++) {
+    if(id ==this.Datafoods[j].id ){
+      for (let i = 0; i < this.fileUploads.length; i++) {
+        if(this.fileUploads[i].url==this.DatafoodsName[j].url ){
+          this.DeleteImg(this.fileUploads[i])
+        }
+        
+      }
     }
     
   }
+
   this.toastr.successToastr("Food Deleted")
   setTimeout(() => {
     if (!localStorage.getItem('foo')) { 
@@ -281,12 +285,21 @@ let id = localStorage.getItem("IdFood")
 
 
 ShowUpdateData(id,index){
-  this.Namefoods = this.Datafoods[index].NameFoods
-  this.calories = this.Datafoods[index].calories
-  this.Protein = this.Datafoods[index].Protein
-  this.Carbs = this.Datafoods[index].Carbs
-  this.Fat = this.Datafoods[index].Fat 
-  localStorage.setItem('urlPhotoFood', this.Datafoods[index].url);
+  for (let i = 0; index < this.Datafoods.length; i++) {
+    if(id ==this.Datafoods[i].id )
+    {
+      this.Namefoods = this.Datafoods[i].NameFoods
+      this.calories = this.Datafoods[i].calories
+      this.Protein = this.Datafoods[i].Protein
+      this.Carbs = this.Datafoods[i].Carbs
+      this.Fat = this.Datafoods[i].Fat 
+      localStorage.setItem('urlPhotoFood', this.Datafoods[i].url);
+
+    }
+    
+    
+  }
+
   localStorage.setItem('IdFood', id);
   
 
