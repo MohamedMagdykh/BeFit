@@ -19,6 +19,8 @@ import { ProfileComponent } from './AllComponents/profile/profile.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 
 
@@ -31,6 +33,7 @@ import { JwPaginationModule } from 'jw-angular-pagination';
     ExreciseComponent,
     CaloriesComponent,
     ProfileComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,9 +49,9 @@ import { JwPaginationModule } from 'jw-angular-pagination';
         NgxPaginationModule,
         NgxSpinnerModule,
         JwPaginationModule
-    
+     
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

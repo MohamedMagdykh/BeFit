@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
          document.getElementById('navbar').style.top = "0px"
          document.getElementById('navbar').style.background= "rgb(38, 38, 38)"
         
-         bodyStyles.setProperty('--maincolorNav', "#7e7e7e");
+         bodyStyles.setProperty('--maincolorNav', "white");
         //  console.log(window.pageYOffset)
        }
        else{

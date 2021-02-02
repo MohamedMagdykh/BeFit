@@ -2,7 +2,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~animate.css/animate.css";
 :root{
-    --maincolorNav: #7e7e7e;
+    --maincolorNav: white;
     --maincolor: #e36c51;
 }   
 body{
@@ -11,3 +11,8 @@ body{
        
     
   }
+  .modal-backdrop.show{
+
+    width: 288vw !important;
+    height: 100% !important;
+}

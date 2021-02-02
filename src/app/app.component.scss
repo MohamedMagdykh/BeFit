@@ -2,6 +2,7 @@
     --maincolorNav: var(--maincolorNav);
 }
 
+
 #navbar{
     top: 0px;
     background:rgb(38, 38, 38) ;
@@ -9,62 +10,35 @@
    
     border-top: 1px solid rgba(255,255,255,.1)!important;
     border-bottom: 1px solid rgba(255,255,255,.1)!important;
-    .container{
-        margin-left: 217px;        
-        .form-inline{
-            .login{
-                background-color: var(--maincolor);
-                color: white;
-                margin-left: 200px;
-                border: none;
-                width: 115px;
+    padding-left:7%;
+    padding-right:7%;
+    .nav-item
+    {
+        font-size: 20px;
+        margin-left: 5%;
+        margin-right: 5%;
+       
+        .nav-link
+        {
+            color: white !important;
+            &:hover
+            {
+                color: var(--maincolor) !important;
+
             }
-          
 
         }
-      
-        .dropdown{
-            margin-left: -100px;
-            .dropdown-toggle{
-
-                color: var(--maincolorNav);              
-               
-            }
-            
-            .dropdown-menu{
-                margin-left: 65%;
-                background-color: rgba(0, 0, 0, 0.3);
-                
-                .dropdown-item{
-                    color: white;
-                    &:hover{
-                        background: var(--maincolor);;
-                    }
-    
-                }
-                
-            }
-        }
-
-        .nav-item{
-            
-            &:hover{
-                color: var(--maincolor);
-            }
-            &:focus{
-                color: var(--maincolor);
-            }
-            color: var(--maincolorNav);
-            font-size: 20px;
-            padding-left: 115px;
-            // .username{
-            //     color: var(--maincolorNav);
-            // }
-        }
-      
-   
     }
+    .login
+    {
+       background-color: var(--maincolor);
+       color: white;
+       border: none;
+       width: 115px;
+     }
+   
 
+   
     
 }
 .setting{
@@ -174,12 +148,380 @@
 .btn-success{
     height: 5%;
 }
-.h1FitLogo {
+.navbar-brand {
     font-family: "Raleway";
-    margin-left: -122px;
+    // margin-left: -122px;
     color: white;
-    font-size: 25px;
+    font-size: 28px;
 .FitLogo{
     color: var(--maincolor);
 }
 }
+footer{
+    background-color: #262626;
+    height: auto;
+    h3{
+        color: #fff;
+        font-size: 25px;
+        margin-top: 10%;
+        margin-bottom: 11%;
+    }
+    .contacts{
+        margin-top: 6%;
+        
+        color: #fff;
+        
+        div{
+            margin-bottom: 6%;
+            i{
+                margin-right: 10%;
+            }
+        }
+    }
+
+.RecentPosts{
+    margin-top: 5%;
+    
+    
+    .FristPost{
+        margin-left: 20px;
+        padding-bottom: 15px;
+        
+        border-bottom: 1px solid rgba(255,255,255,.1)!important;
+        .photo{
+            border-radius: 50%;
+            background: url('src/assets/FristPost.jpg') ;
+            background-size: 100% 100%;
+            height: 75px;
+            width: 75px;
+        
+        }
+        
+
+            .Name{
+                margin-top: 10px;
+                margin-left:20px;
+                color: white;
+            }
+      
+    }
+    .SecondPost{
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255,255,255,.1)!important;
+        margin-left: 20px;
+        padding-top: 15px;
+        .photo{
+            border-radius: 50%;
+            background: url('src/assets/SecondPost.jpg') ;
+            background-size: 100% 100%;
+            height: 75px;
+            width: 75px;
+        
+        }
+        
+
+            .Name{
+                margin-top: 10px;
+                margin-left:20px;
+                color: white;
+            }
+      
+    }
+    .ThirdPost{
+        padding-top: 15px;
+        margin-left: 20px;
+        .photo{
+            border-radius: 50%;
+            background: url('src/assets/ThirdPost.jpg') ;
+            background-size: 100% 100%;
+            height: 75px;
+            width: 75px;
+        
+        }
+        
+
+            .Name{
+                margin-top: 10px;
+                margin-left:20px;
+                color: white;
+            }
+      
+    }
+}
+   .LatestProjects{
+    margin-top: 5%;
+   
+       .one{
+        background: url('src/assets/1.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%;
+       }
+       .two{
+        background: url('src/assets/2.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%
+       }
+       .three{
+        background: url('src/assets/3.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%;
+       }
+       .four{
+        background: url('src/assets/4.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%;
+        margin-top: 5%;
+
+
+       }
+       .five{
+        background: url('src/assets/5.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%;
+        margin-top: 5%;
+       }
+       .six{
+        background: url('src/assets/6.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%;
+        margin-top: 5%;
+       }
+       .seven{
+        background: url('src/assets/7.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%;
+        margin-top: 5%;
+
+
+       }
+       .eight{
+        background: url('src/assets/8.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%;
+        margin-top: 5%;
+       }
+       .nine{
+        background: url('src/assets/9.jpg') ;
+        background-size: 100% 100%;
+        height: 85px;
+        width: 85px;
+        margin-left: 5%;
+        margin-top: 5%;
+       }
+   }
+   .copyright{
+        background: #222;
+        color: white;
+        min-width: 100%;
+        height: 47px;
+        padding-top: 10px;
+        bottom: 0px;
+        margin-top: 3%;
+        .Fit{
+            color: var(--maincolor);
+        }
+}
+   
+}   
+
+@media only screen and (min-width: 1200px)
+{
+    #navbar
+    {
+        .navbar-collapse
+    {
+        position: relative;
+        .navbar-collapse
+        {
+            position: absolute;
+        }
+        .navbar-nav-ul
+        {
+            position: absolute;
+            left: 22%;
+
+        }
+        .navbar-nav-form
+        {
+            position: absolute;
+            right: 15px;
+
+        }
+    }
+      
+
+    }
+
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+{
+    #navbar
+    {
+        .navbar-collapse
+        {
+            position: relative;
+            .navbar-collapse
+            {
+                position: absolute;
+            }
+            .navbar-nav-ul
+            {
+                position: absolute;
+                left: 8%;
+    
+            }
+            .navbar-nav-form
+            {
+                position: absolute;
+                right: 15px;
+    
+            }
+        }
+     
+
+    }
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{
+    #navbar
+    {
+        .navbar-collapse
+        {
+            padding-left: 0%;
+            background:rgb(38, 38, 38 , 0.5) !important;
+            
+
+        }
+
+    }
+
+}
+@media only screen and (max-width: 767px) 
+{
+    #navbar
+    {
+      .login
+      {
+          width: 100%;
+      }
+      .navbar-collapse
+        {
+            background:rgb(38, 38, 38 , 0.5) !important;
+           
+
+        }
+  
+    }
+    #LoginModel
+    {
+        a
+        {
+            margin-left: 0%;
+            width: 100%;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    }
+    #Signin
+    {
+
+        position: absolute;
+        height: 731px;
+    }
+ 
+
+}
+@media only screen and (max-width: 499px) 
+{
+    footer{
+
+        .LatestProjects
+        {
+            .one
+            {
+             height: 75px !important;
+             width: 80px !important;
+             margin-left: 2% !important;
+             margin-top: 2% !important;
+            }
+            .two
+            {
+             height: 75px !important;
+             width: 80px !important;
+             margin-left: 2% !important;
+             margin-top: 2% !important;
+            }
+            .three
+            {
+             height: 75px !important;
+             width: 80px !important;
+             margin-left: 2% !important;
+             margin-top: 2% !important;
+            }
+            .four
+            {
+             height: 75px !important;
+             width: 80px !important;
+             margin-left: 2% !important;
+             margin-top: 2% !important;
+            }
+            .five
+            {
+             height: 75px !important;
+             width: 80px !important;
+             margin-left: 2% !important;
+             margin-top: 2% !important;
+            }
+            .six
+            {
+             height: 75px !important;
+             width: 80px !important;
+             margin-left: 2% !important;
+             margin-top: 2% !important;
+            }
+            .seven
+            {
+             height: 75px !important;
+             width: 80px !important;
+             margin-left: 2% !important;
+             margin-top: 2% !important;
+            }
+            .eight
+            {
+             height: 75px !important;
+             width: 80px!important;
+             margin-left: 3% !important;
+             margin-top: 2% !important;
+            }
+            .nine
+            {
+             height: 80px!important;
+             width: 80px !important;
+             margin-left: 2% !important;
+             margin-top: 2% !important;
+            }
+        }
+    
+    }   
+    
+
+}
+
+

@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   UserUrl
   DataUsers
   mail
+  typeUser
   ChangeUserName
   selectedFiles: FileList;
   percentage: number;
@@ -44,6 +45,8 @@ export class ProfileComponent implements OnInit {
   // ExSystemDay=[]
   ExSystemaData=[]
   NameDayExSystemaData
+  TypeUser = localStorage.getItem("typeuser")
+
   
 
 
@@ -54,6 +57,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
   this.spinner.show();
+  document.getElementById('footer').style.marginTop = "0%"
+  
+  
+
     
     if (!localStorage.getItem('foo')) { 
       localStorage.setItem('foo', 'no reload') 
@@ -65,6 +72,10 @@ export class ProfileComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
+   
+    
+
+    
     
   }
   //  test(){
@@ -95,11 +106,11 @@ export class ProfileComponent implements OnInit {
    
            if (this.DataUsers[i].mail == localStorage.getItem("UserLogMail"))
            {
-             console.log(this.DataUsers[i])
+            //  console.log(this.DataUsers[i])
              this.Username = this.DataUsers[i].name
              this.UserUrl = this.DataUsers[i].url
              this.mail= this.DataUsers[i].mail
-
+             this.typeUser=this.DataUsers[i].type
              this.day1 = this.DataUsers[i].day1
              this.day2 = this.DataUsers[i].day2
              this.day3 = this.DataUsers[i].day3
@@ -112,27 +123,14 @@ export class ProfileComponent implements OnInit {
              this.ExSystemName = this.DataUsers[i].ExereciseSystem.ExreciseName
             }
 
-            //  for (let i = 0; i < this.ExSystem.length; i++) {
-            //   this.ExSystemaData.push(this.ExSystem[i].data )
-              
-
-
-
-               
-            //  }
-
-             console.log( this.day1)
-
-            //  console.log(this.day7.length)
-            //  console.log(this.DataUsers[i].id)
+           
              localStorage.setItem("iduser",this.DataUsers[i].id)
              localStorage.setItem("Nameuser",this.DataUsers[i].name)
              localStorage.setItem("ProfilePhotoUser",this.DataUsers[i].url)
-             console.log(this.DataUsers[i].url)
+            //  console.log(this.DataUsers[i].url)
              localStorage.setItem("UserPassword",this.DataUsers[i].password)
-
-
- 
+             localStorage.setItem("typeuser",this.DataUsers[i].type)
+      
            }
            
          }
@@ -157,24 +155,24 @@ export class ProfileComponent implements OnInit {
       )
     ).subscribe(fileUploads => {
       this.fileUploads = fileUploads;
-      console.log(fileUploads)
+      // console.log(fileUploads)
       
     
       
     });
     
-    console.log("1")
+    // console.log("1")
   
   }
 
   DeleteProfileImg() {
-    console.log(this.fileUploads)
+    // console.log(this.fileUploads)
    
     
     for (let i = 0; i < this.fileUploads.length; i++) {
-      console.log(this.fileUploads[i].url)
+      // console.log(this.fileUploads[i].url)
       if(this.fileUploads[i].url==localStorage.getItem("ProfilePhotoUser") ){
-        console.log(this.fileUploads[i])
+        // console.log(this.fileUploads[i])
         this.DeleteImg(this.fileUploads[i])
       }
       
@@ -186,13 +184,13 @@ export class ProfileComponent implements OnInit {
     // } else {
     //   localStorage.removeItem('foo') 
     // }
-    console.log("2")
+    // console.log("2")
   
   }
   DeleteImg(fileUpload) {
     this.authService.delete_Img(fileUpload);
     this.AddProfileImg()
-    console.log("3")
+    // console.log("3")
   }
   SelectImg(event) {
     this.selectedFiles = event.target.files;
@@ -219,7 +217,7 @@ export class ProfileComponent implements OnInit {
     
   );
   
-  console.log("4")
+  // console.log("4")
   }
    updateProfilePhoto(){
     
@@ -234,7 +232,7 @@ wiating(){
   setTimeout(() => {
     this.load = false
     
-  }, 10000); 
+  }, 15000); 
 }
 chanepass(){
   if(this.oldpass == localStorage.getItem("UserPassword") ){

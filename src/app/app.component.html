@@ -1,5 +1,5 @@
 <ngx-spinner style=" z-index: 999999;" bdColor = "rgba(0,0,0,0.9)" size = "large" color = "#e36c51" type = "square-jelly-box" [fullScreen] = "true"><p style="color: #e36c51; font-size: 20px;" > Loading... </p></ngx-spinner>
-<section class="setting">
+<!-- <section class="setting">
     <i class="fa fa-cog fa-2x cog-setting " (click)="toggle()"  ></i>
   <div class="colorBox" *ngIf="!isActive">
     <h6>Choose Color</h6>
@@ -12,52 +12,172 @@
   
     </ul>
   </div>
-  </section>
-<nav class="navbar navbar-expand-lg navbar-light   fixed-top " id="navbar" >
+  </section> -->
 
-  
-    <div class="container"> 
-      <form class="form-inline my-2 my-lg-0">
-        <h1 style="margin-top: 10px;" class="h1FitLogo row" >
-          BE <span class="FitLogo" >FIT </span>
-        </h1>
-      </form> 
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-     data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" 
-     aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top " id="navbar" >
+    
+    <a class="navbar-brand " [routerLink]="['']">BE <span class="FitLogo" >FIT </span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
-      <div class="navbar-nav">
-        <img class="profilephoto"  src="{{UserUrl}}" alt="" *ngIf="CheckLog == true && UserUrl != null">
-        <li class="nav-item dropdown" *ngIf="CheckLog == true">
+  
+    <div class="collapse navbar-collapse" style=" padding-left:1% ;" id="navbarSupportedContent">
+      <ul class="navbar-nav navbar-nav-ul mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/foods']">Foods</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" [routerLink]="['/exrcise']">Exercise</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/calories']">Calories</a>
           
-          <a style="outline: none;" class="nav-link dropdown-toggle username" href="#" id="navbarDropdown username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </li>
+      </ul>
+      <form class="form-inline navbar-nav-form  my-2 my-lg-0" *ngIf="CheckLog == true">
+        <img class="profilephoto"  src="{{UserUrl}}" alt="" *ngIf="CheckLog == true && UserUrl != null">
+
+          <a style="outline: none; position:relative; color: white; font-size: 20px;" class="nav-link dropdown-toggle username" href="#" id="navbarDropdown username" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            {{Username}}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
            
             <a class="dropdown-item" [routerLink]="['/profile']">Profile</a>
             
             <a class="dropdown-item" (click)="logout()" >LogOut</a>
           </div>
-        </li>
-        <a class="nav-item nav-link "  [routerLink]="['']">Home  </a>
-        <a class="nav-item nav-link"  [routerLink]="['/foods']">Foods</a>
-        <a class="nav-item nav-link"  [routerLink]="['/exrcise']">Exercise</a>
-        <a class="nav-item nav-link"  [routerLink]="['/calories']">Calories</a>
-        
-        <form class="form-inline my-2 my-lg-0">
-          <button class="btn login my-2 my-sm-0 form-control "  id="logshow" data-toggle="modal" data-target="#LoginModel" type="submit" *ngIf="CheckLog == false">LogIn</button>
-         
-        </form>
-        
-      </div>
+          </a>
+     
+      </form>
+      <form class="form-inline navbar-nav-form my-2 my-lg-0" *ngIf="CheckLog == false">
+        <button class="btn login my-2 my-sm-0 form-control "  id="logshow" data-toggle="modal" data-target="#LoginModel" type="submit" >LogIn</button>
+
+      </form>
     </div>
-</div>
   </nav>
 
 <router-outlet></router-outlet>
+<footer id="footer" style="margin-top:5% ; position: relative;">
+  <div class="container">
+      <div class="col-12 ">
+        <div class="row">
+        <div class="col-lg-4  col-sm-12 contacts ">
+          <h3 >Contacts</h3>
+          <div>
+            <i class="fa fa-map" aria-hidden="true"></i>
+            Egypt,Menofia,Shebin-Elkom		
+          </div>
+          <div>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            01556044585
+            </div>
+          <div>
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            mohmedmagdykh@gmail.com		
+          </div>
+          <div>
+            <i class="fa fa-clock-o" aria-hidden="true"></i>
+            Mon.-Fri.: 10-20 Sun.: 12-16		
+          </div>
+          
+
+        </div>
+        <div class="col-lg-4  col-sm-12 RecentPosts">
+          <h3 >Recent Posts</h3>
+          <div class="FristPost">
+              <div class="row">
+                  <div class="photo"></div>
+                  <span class="Name">Jack Necolase<br>Gym</span>
+             </div>
+          </div>
+          <div class="SecondPost">
+            <div class="row">
+                <div class="photo"></div>
+                <span class="Name">Tom kroze<br>Traviling</span>
+           </div>
+        </div>
+        <div class="ThirdPost">
+          <div class="row">
+              <div class="photo"></div>
+              <span class="Name">Jason Statem<br>Driving</span>
+         </div>
+      </div>
+           
+        </div>
+        <div class="col-lg-4  col-sm-12 LatestProjects ">
+          <h3 >Latest Projects</h3>
+          <div class="col-lg-12 ">
+            <div class="row">
+              <div class="col-lg-3 one">
+                
+                </div>
+                
+                <div class="col-lg-3 two">
+                
+                </div>
+                
+                <div class="col-lg-3 three">
+                
+                </div>
+                
+                
+
+            </div>
+
+          </div>
+          <div class="col-lg-12 ">
+            <div class="row">
+              <div class="col-lg-3 four">
+                
+                </div>
+                
+                <div class="col-lg-3 five">
+                
+                </div>
+                
+                <div class="col-lg-3 six">
+                
+                </div>
+                
+                
+
+            </div>
+
+          </div>
+          <div class="col-lg-12 ">
+            <div class="row">
+              <div class="col-lg-3 seven">
+                
+                </div>
+                
+                <div class="col-lg-3 eight">
+                
+                </div>
+                
+                <div class="col-lg-3 nine">
+                
+                </div>
+                
+                
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="copyright text-center">
+    Copyright &copy; 2020  Be <span class="Fit">Fit</span> .inc
+  
+  </div>
+</footer>
 
 <div id="ScrollUp" (click)="ScrollUp()" >
     <i class="fa fa-chevron-up" aria-hidden="true"></i>
@@ -93,24 +213,27 @@
                       <div class="container">
                       <div class="row">
                       
-                        <input class="form-control inputcontact " name="mail" [(ngModel)]="email" type="text" placeholder="E-mail" required  #mail="ngModel" >
+                        <input class="form-control inputcontact " name="mail" [(ngModel)]="email" type="text" placeholder="E-mail" required email="true" #mail="ngModel" >
                         <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
                         class="alert alert-danger">
-                            <div *ngIf="mail.errors.required">
-                              Required E-mail
+                            <div *ngIf="mail.errors.required || !loginForm.valid" >
+                              Required E-mail.
+                            </div>
+                            <div *ngIf="mail.errors?.email">
+                              Please Provide A Valid Email Address.
                             </div>
                             <!-- <div *ngIf="mail.errors.email">
                               E-mail Invalid
                             </div> -->
                          </div>
-                        <input class="form-control inputcontact" name="password" [(ngModel)]="pass"  minlength="6"  type="password" placeholder="Password" required  #password="ngModel">
+                        <input class="form-control inputcontact" name="password" [(ngModel)]="pass" id="passwordlogin"  minlength="6"  type="password" placeholder="Password" required  #password="ngModel">
                         <div *ngIf="password.invalid && (password.dirty || password.touched)"
                         class="alert alert-danger">
                             <div *ngIf="password.errors.required">
-                              Required Password
+                              Required Password.
                             </div>
                             <div *ngIf="password.errors.minlength">
-                              Paswword Weak
+                              Paswword Weak.
                             </div>
                          </div>
                          <a class="Create"  data-toggle="modal" data-target="#Signin" data-dismiss="modal" >Create E-mail</a>
@@ -130,8 +253,8 @@
              
                
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
-                <button type="submit" class="btn btn-default BtnAddFoodModel" (click)="LogIn()"  [disabled]="!loginForm.valid" data-dismiss="modal"  >Log</button>
+                <button type="button" class="btn btn-default"  data-dismiss="modal" >Close</button>
+                <button type="submit" class="btn btn-default BtnAddFoodModel" [disabled]="password.invalid || mail.invalid" (click)="LogIn()" >Log</button>
               </div>
             </div>
             
@@ -166,11 +289,16 @@
                         <div class="container">
                         <div class="row">
                         
-                          <input class="form-control inputcontact " name="mail" [(ngModel)]="EmailResetPassword" type="text" placeholder="E-mail" required  #mail="ngModel" >
-                          <div *ngIf="mail.invalid && (mail.dirty || mail.touched)"
+                          <input class="form-control inputcontact " name="mail" 
+                          [(ngModel)]="EmailResetPassword" type="text" email="true" placeholder="E-mail"
+                           required  #mailConfirm="ngModel" >
+                          <div *ngIf="mailConfirm.invalid && (mailConfirm.dirty || mailConfirm.touched)"
                           class="alert alert-danger">
-                              <div *ngIf="mail.errors.required">
+                              <div *ngIf="mailConfirm.errors.required">
                                 Required E-mail
+                              </div>
+                              <div *ngIf="mailConfirm.errors?.email">
+                                Please Provide A Valid Email Address
                               </div>
                              
                            </div>
@@ -191,8 +319,8 @@
                
                  
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
-                  <button type="submit" class="btn btn-default BtnAddFoodModel" (click)="send_Password_ResetEmail()"  [disabled]="!ConfirmEmail.valid" data-dismiss="modal"  >Confirm</button>
+                  <button type="button" class="btn btn-default"  data-dismiss="modal" >Close</button>
+                  <button type="submit" class="btn btn-default BtnAddFoodModel" (click)="send_Password_ResetEmail()"  [disabled]="mailConfirm.invalid" data-dismiss="modal"  >Confirm</button>
                 </div>
               </div>
               
@@ -241,11 +369,14 @@
                                
                              </div>
 
-                            <input class="form-control inputcontact " name="SignInMail" [(ngModel)]="SignInMail" type="text" required  #SignInMaill="ngModel" placeholder="E-mail"   >
+                            <input class="form-control inputcontact " name="SignInMail" [(ngModel)]="SignInMail" type="text" email="true" required  #SignInMaill="ngModel" placeholder="E-mail"   >
                                 <div *ngIf="SignInMaill.invalid && (SignInMaill.dirty || SignInMaill.touched)"
                                 class="alert alert-danger">
                                     <div *ngIf="SignInMaill.errors.required">
                                       Required Mail
+                                    </div>
+                                    <div *ngIf="SignInMaill.errors?.email">
+                                      Please Provide A Valid Email Address
                                     </div>
                                   
                                 </div>
@@ -253,7 +384,7 @@
                                   <div *ngIf="SignInpasswordd.invalid && (SignInpasswordd.dirty || SignInpasswordd.touched)"
                                   class="alert alert-danger">
                                       <div *ngIf="SignInpasswordd.errors.required">
-                                        Required UserName
+                                        Required Password
                                       </div>
                                       <div *ngIf="SignInpasswordd.errors.minlength">
                                         At least 6
@@ -264,7 +395,7 @@
                                     <div *ngIf="RePasswordd.invalid && (RePasswordd.dirty || RePasswordd.touched)"
                                     class="alert alert-danger">
                                         <div *ngIf="RePasswordd.errors.required">
-                                          Required UserName
+                                          Required Confirm Password
                                         </div>
                                         <div *ngIf="RePasswordd.errors.minlength">
                                           At least 6
@@ -314,3 +445,5 @@
           </div>
         
         </form>
+
+

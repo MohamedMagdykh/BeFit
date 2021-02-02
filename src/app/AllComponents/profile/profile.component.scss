@@ -2,122 +2,193 @@
     
     --maincolor: var(--maincolor);
 
-}  
-.col-12{
-    padding-left: 0px;
-    padding-right: 0px;
-    .info{
-        margin-top: 4%;
-        background: var(--maincolor);
-        padding-left: 0px;
-        position: fixed;
-        .container{
-            padding-left: 15%;
-            margin-right: 15%;
-          
-            .row{
-                .BtnChange{
-                   
-                    background-color: var(--maincolor);
-                    outline:none;
+}
+
+.s1 {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 900px;
+
+    .col-12
+    {
+            padding-left: 0px;
+            padding-right: 0px;
+            height: 100%;
+            .row
+            {
+                margin-left: 0px;
+                margin-right: 0px;
+                height: 100%;
+
+            }
+
+            .info{
+                margin-top: 4%;
+                background: var(--maincolor);
+                padding-left: 0px;
+                position: absolute;
+                left: 0;
+                height: 100%;
+                .container{
+                    padding-left: 5%;
+                    margin-right: 5%;
+                
+                    .row{
+                        .BtnChange{
+                        
+                            background-color: var(--maincolor);
+                            outline:none;
 
 
-                    border: none;
-                    &:focus{
-                        border: none !important;
-                        border-color: white !important;
-                        // outline:none;
+                            border: none;
+                            &:focus{
+                                border: none !important;
+                                border-color: white !important;
+                                // outline:none;
 
+                            }
+                            
+                            
+                            
+                        }
+                        // box-shadow: 8px 8px 10px 10px whitesmoke;
+                        padding-top: 5%;
+                        padding-bottom: 5%;
+                        .divimgPro
+                        {
+                            position: relative;
+                            width: 200px;
+                            margin-left: 25%;
+                            height: 200px;
+                            border-radius: 50%;
+                            img{
+                        
+                                // width: 200px;
+                                // height: 200px;
+                                position: absolute;
+                                border-radius: 50%;
+                                width: 100%;
+                                height: 100%;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                top: 0;
+                               
+                                background-size: 100% 100%;
+                             
+                             
+                                box-shadow: 0px 0px 11px #ababab;
+                                
+                            }
+                            .imghover{
+                                width: 100%;
+                                height: 100%;
+                                top: 0;
+                                right: 0;
+                                bottom: 0;
+                                left: 0;
+                                border-radius: 50%;
+                                position: absolute;
+                                background: rgba(0, 0, 0, 0.5);
+                                color: white;
+                                font-family: -webkit-pictograph;
+                                opacity: 0;
+                                padding-top: 80px;
+                                font-size: 28px;
+                                &:hover{
+                                    opacity: 1;
+                                }
+                            
+                               
+                               
+                            }
+                        }
+            
+               
+                    .username{
+                    padding-top: 7%;
+                    font-size: 25px;
+                    color: white;
+                    i{
+                        
+                        &:hover
+                        {
+                            color: black
+                        }
                     }
-                    
+            
+                    .e-mail{
+                        margin-top: 8%;
+                        margin-bottom: 10%;
+                        color: white;
+                        margin-top: 10%;
+                    }
+                    }
+                }
+            
+                }
+            }
+            .plan{
+                padding-bottom: 7%;
+                box-shadow: 8px 8px 10px 10px whitesmoke;
+                margin-top: 5%;
+                margin-left: 33.5%;
+                height: 100%;
+                overflow: scroll;
+            
+                
+                .borderstyly{
+                    border: 8px solid rgb(252, 108, 81,0.4);
+                    padding: 17px;
+                }
+            
+                h2{
+                    font-size: 1.7rem;
+                    margin-bottom: 4%;
+                    color: white;
+                    margin-top: 5%;
+                    width: 96%;
+                    background: var(--maincolor);
+                    height: 43px;
+                    padding-top: 4px;
+                   text-align: center;
+                   margin-left: 2%
                     
                     
                 }
-                // box-shadow: 8px 8px 10px 10px whitesmoke;
-                padding-top: 5%;
-                padding-bottom: 5%;
-    
-            img{
-                margin-left: 44px;
-                width: 200px;
-                height: 200px;
-                background-size: 100% 100%;
-                margin-bottom: 11%;
-                border-radius: 50%;
-                margin-left: 82px;
-                box-shadow: 0px 0px 11px #ababab;
-                
+                .anotherDay{
+                    background-color: var(--maincolor); 
+                    color: white;
+                    border-color: var(--maincolor);
+                    margin-right: 30%;
+                    margin-top: 10%;
+                    margin-left: 30%;
+                    width:40%;
+                    &:hover{
+                        transform: scale(1.1);
+                    }
+                }
+                .content{
+                    
+                    border-top: 1px solid #dee2e6;
+                }
             }
-            .username{
-               padding-top: 7%;
-               
-               font-size: 25px;
-               color: white;
-               i{
-                   
-                   &:hover{
-                       color: black
-                   }
-               }
-    
-               .e-mail{
-                margin-top: 8%;
-                margin-bottom: 10%;
-                
-                color: white;
-                   margin-top: 10%;
-               }
-            }
-          }
-    
+        .emptyplan
+        {
+            background: rgba(0, 0, 0, 0.76);
+            width: 100%;
+            right: 0;
+            position: absolute;
+            height: 100%;
         }
     }
 }
-.plan{
-    padding-bottom: 7%;
-    box-shadow: 8px 8px 10px 10px whitesmoke;
-    margin-top: 5%;
-    margin-left: 33%;
 
-    .container{
-        padding-left: 24px !important;
-       
-    }
-    .borderstyly{
-        border: 8px solid rgb(252, 108, 81,0.4);
-        padding: 17px;
-    }
-  
-    h2{
-        font-size: 1.7rem;
-        margin-bottom: 4%;
-        color: white;
-        margin-top: 5%;
-        width: 96%;
-        background: var(--maincolor);
-        height: 43px;
-        padding-top: 4px;
-        padding-left: 44%;
-        margin-left: 23px;
-        
-        
-    }
-    .anotherDay{
-        background-color: var(--maincolor); 
-        color: white;
-        border-color: var(--maincolor);
-        margin-right: 25%;
-        margin-top: 10%;
-        margin-left: 222px;
-        &:hover{
-            transform: scale(1.1);
-        }
-    }
-    .content{
-        
-        border-top: 1px solid #dee2e6;
-    }
-}
+
+
+   
+    
 .changepass{
     // margin-top: 5%;
     // box-shadow: 8px 8px 10px 10px whitesmoke;
@@ -200,3 +271,408 @@
         cursor: pointer;
     }
 }
+
+
+@media only screen and (min-width: 1200px)
+{
+
+
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+{
+
+    .s1
+    {
+        height: 800px;
+        margin-top: 1%;
+        .CreateYourPlan
+        {
+            
+            margin-top: 60% !important;
+
+
+        }
+      
+        .info{
+            padding-top:5% ;
+            
+      
+            .container{
+        
+            
+                .row{
+                    .BtnChange
+                    {
+                        font-size: 20px;
+                    
+                    }
+                    .divimgPro
+                    {
+                        width: 150px !important;
+                        height: 150px !important;
+
+                    }
+              
+        
+          
+                .username
+                {
+                font-size: 20px !important;
+                
+             
+        
+                .e-mail
+                {
+                    font-size: 20px;
+                   
+                }
+            }
+        
+                
+            }
+        
+            }
+            .changepass
+            {
+                h2,input
+                {
+                    font-size: 20px !important;
+                }
+            }
+        }
+    }
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{
+    .s1
+    {
+        height: 620px;
+        margin-top: 3%;
+        .CreateYourPlan
+        {
+            width: 50% !important;
+            margin-top: 70% !important;
+
+
+        }
+        .info{
+            padding-top:5% ;
+      
+            .container{
+        
+            
+                .row{
+                    .divimgPro
+                    {
+                        width: 100px !important;
+                        height: 100px !important;
+
+                    }
+                    .BtnChange
+                    {
+                        font-size: 20px;
+                    
+                    }
+                    // box-shadow: 8px 8px 10px 10px whitesmoke;
+              
+        
+          
+                .username
+                {
+                font-size: 14px !important;
+                
+             
+        
+                .e-mail
+                {
+                    font-size: 14px;
+                   
+                }
+            }
+          
+                
+            }
+        
+            }
+            .changepass
+            {
+                h2,input
+                {
+                    font-size: 14px !important;
+                }
+                .BtnChange
+                {
+                    width: 100%;
+                    margin-left:0% ;
+                }
+            }
+        }
+        .plan
+        {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            .container
+            {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+                .borderstyly
+                {
+                    
+                    font-size: 0.7rem;
+                    padding: 10px
+                }
+
+            }
+           
+        }
+      
+    }
+ 
+    
+  
+
+
+}
+@media only screen and (max-width: 767px) 
+{
+    
+    .s1
+    {
+
+        margin-top: 3%;
+        height: 570px;
+        .CreateYourPlan
+        {
+            width: 50% !important;
+            margin-top: 80% !important;
+
+
+        }
+        .info{
+            padding-top:10% ;
+      
+            .container{
+        
+            
+                .row{
+                    .divimgPro
+                    {
+                        width: 100px !important;
+                        height: 100px !important;
+
+                    }
+                   
+                    // box-shadow: 8px 8px 10px 10px whitesmoke;
+              
+        
+          
+                .username
+                {
+                font-size: 10px !important;
+                
+             
+        
+                .e-mail
+                {
+                    font-size: 10px;
+                   
+                }
+            }
+          
+                
+            }
+        
+            }
+            .changepass
+            {
+                h2,input
+                {
+                    font-size: 10px !important;
+                }
+                .BtnChange
+                {
+                    width: 100%;
+                    margin-left:0% ;
+                }
+                .BtnChange
+                {
+                    font-size: 10px;
+                
+                }
+            }
+        }
+        .plan
+        {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            h2
+            {
+                margin-top: 10% !important;
+            }
+            .container
+            {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+                .borderstyly
+                {
+                    
+                    font-size: 0.5rem;
+                    padding: 5px
+                }
+               
+                .day
+                {
+                    font-size: 1.4rem;
+                }
+                .table
+                {
+                    .nameMealAndAmount
+                    {
+                        font-size: 0.4rem;
+
+                    }
+                    th
+                    {
+                        padding: .5rem;
+
+                    }
+
+                }
+                  
+
+            }
+           
+        }
+    }
+ 
+ 
+
+}
+@media only screen and (max-width: 499px) 
+{
+    .s1
+    {
+
+        margin-top: 11%;
+        height: 570px;
+        .CreateYourPlan
+        {
+            width: 80% !important;
+            margin-top: 80% !important;
+            margin-left: 10% !important;
+
+
+        }
+        .info{
+            padding-top:10% ;
+            padding-right:0px !important ;
+      
+      
+            .container{
+                padding-right:0px !important ;
+                padding-left: 0px !important;
+        
+            
+                .row{
+                    padding-right:0px !important ;
+                    padding-left: 0px !important;
+                    .divimgPro
+                    {
+                        width: 60px !important;
+                        height: 60px !important;
+
+                    }
+                   
+                    // box-shadow: 8px 8px 10px 10px whitesmoke;
+              
+        
+          
+                .username
+                {
+                font-size: 10px !important;
+                
+             
+        
+                .e-mail
+                {
+                    font-size: 10px;
+                    overflow-wrap: break-word;
+                   
+                }
+            }
+          
+                
+            }
+        
+            }
+            .changepass
+            {
+                h2,input
+                {
+                    font-size: 10px !important;
+                }
+                .BtnChange
+                {
+                    width: 100%;
+                    margin-left:0% ;
+                }
+                .BtnChange
+                {
+                    font-size: 10px;
+                
+                }
+            }
+        }
+        .plan
+        {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            h2
+            {
+                margin-top: 10% !important;
+            }
+            .container
+            {
+                padding-left: 5px !important;
+                padding-right: 1px !important;
+                .borderstyly
+                {
+                    overflow: scroll;
+                    font-size: 0.5rem;
+                    padding: 1px
+                }
+               
+                .day
+                {
+                    font-size: 1.4rem;
+                }
+                .table
+                {
+                    .nameMealAndAmount
+                    {
+                        font-size: 0.4rem;
+
+                    }
+                    th
+                    {
+                        padding: .1rem;
+
+                    }
+
+                }
+                  
+
+            }
+           
+        }
+    }
+   
+    
+ 
+
+}
+
+
+
+

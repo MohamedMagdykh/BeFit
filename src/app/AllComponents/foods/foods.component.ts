@@ -75,6 +75,7 @@ fatUses=0
 NumDays=[]
 NumDay='Choose Day'
 TypeFood = "Amount"
+TypeUser = localStorage.getItem("typeuser")
 
 
 
@@ -128,20 +129,16 @@ latestEntry: any
   }
 
   ngOnInit(): void {
+    // console.log(document.getElementById("navbarNavAltMarkup"))
+    // var x = window.matchMedia("(max-width: 700px)")
+    
+
+    
  
   }
   AddAndUpdatefood(){
     
-    //  var body = { 
-       
-    //   "NameFoods":this.Namefoods,
-    //   "calories":this.calories,
-    //   "Protein":this.Protein,
-    //   "Carbs": this.Carbs,
-    //   "Fat": this.Fat,
-    //   "url":"gg"
-    //  }
-    
+
     this.foodsSer.Add_Foods(this.Namefoods,this.calories,this.Protein,this.Carbs,this.Fat,this.TypeFood);
  
   
@@ -181,15 +178,17 @@ addfood(){
       for (let i = 0; i < this.Datafoods.length; i++) 
       {
 
-        if (this.Datafoods[i].NameFoods.includes(this.Searchfoods))
+        if (this.Datafoods[i].NameFoods.toUpperCase().includes(this.Searchfoods.toUpperCase()))
         {
           this.DatafoodsName.push(this.Datafoods[i])
 
-          // console.log(this.DatafoodsName)
+       
         }
         
       }
-    
+      
+
+      console.log(this.DatafoodsName.sort((a,b) => a.NameFoods > b.NameFoods ? 1 : -1))
      
       
     },
@@ -264,43 +263,48 @@ AddImgFood() {
 
 
 }
+Updatefood(){
+    
 
-updatefood(){
   
-let id = localStorage.getItem("IdFood")
-  this.foodsSer.Delete_Foods(id);
-  this.AddAndUpdatefood()
+  this.foodsSer.update_food(this.Namefoods,this.calories,this.Protein,this.Carbs,this.Fat,this.TypeFood,localStorage.getItem("IdFood"));
+
+
+} 
+
+// updatefood(){
   
 
-  this.toastr.successToastr("Food Updated")
-  setTimeout(function(){
-    if (!localStorage.getItem('foo')) { 
-      localStorage.setItem('foo', 'no reload') 
-      location.reload() 
-    } else {
-      localStorage.removeItem('foo') 
-    }
-  },2000)
-}
+//   this.foodsSer.Delete_Foods(localStorage.getItem("IdFood"));
+//   this.Updatefood()
+  
+
+  
+
+// }
 
 
 ShowUpdateData(id,index){
   for (let i = 0; index < this.Datafoods.length; i++) {
-    if(id ==this.Datafoods[i].id )
+     
+    
+    if(id == this.Datafoods[i].id )
     {
+      console.log(this.Datafoods[i].id )
       this.Namefoods = this.Datafoods[i].NameFoods
       this.calories = this.Datafoods[i].calories
       this.Protein = this.Datafoods[i].Protein
       this.Carbs = this.Datafoods[i].Carbs
       this.Fat = this.Datafoods[i].Fat 
       localStorage.setItem('urlPhotoFood', this.Datafoods[i].url);
+      localStorage.setItem('IdFood', this.Datafoods[i].id );
 
     }
     
     
   }
 
-  localStorage.setItem('IdFood', id);
+  
   
 
 }
@@ -325,93 +329,117 @@ DeleteImg(fileUpload) {
   this.foodsSer.delete_Img(fileUpload);
 }
 ClearData(){
-  if (!localStorage.getItem('foo')) { 
-    localStorage.setItem('foo', 'no reload') 
-    location.reload() 
-  } else {
-    localStorage.removeItem('foo') 
-  }
+  // if (!localStorage.getItem('foo')) { 
+  //   localStorage.setItem('foo', 'no reload') 
+  //   location.reload() 
+  // } else {
+  //   localStorage.removeItem('foo') 
+  // }
+  this.Namefoods = null
+  this.calories = null
+  this.Protein = null
+  this.Carbs = null
+  this.Fat = null
+  this.NumGrams=null
+
+ 
 }
-CurrentcaloriesAmount( ){
-  if(this.percentageForBody.ReqCalories>=this.Datafoods[this.selectfood].calories/100 * this.NumGrams){
-    console.log(this.NumDay)
-    if(this.NumDay=='Choose Day')
-    {
-      this.toastr.warningToastr("Please Choose Day Frist")
-
-    }
-  else
-  {
-    if(this.NumMeal=='Choose Num Meal')
-    {
-      this.toastr.warningToastr("Please Choose Num Meal Frist")
-
+CurrentcaloriesAmount(){
+  for (let i = 0; i < this.Datafoods.length; i++) {
+    if(this.Datafoods[i].id ==this.selectfood ){
+      if(this.percentageForBody.ReqCalories>=this.Datafoods[i].calories/100 * this.NumGrams){
+        // console.log(this.NumDay)
+        if(this.NumDay=='Choose Day')
+        {
+          this.toastr.warningToastr("Please Choose Day Frist")
+    
+        }
+      else
+      {
+        if(this.NumMeal=='Choose Num Meal')
+        {
+          this.toastr.warningToastr("Please Choose Num Meal Frist")
+    
+        }
+        else{
+            this.percentageForBody.ReqCalories = Math.floor(this.percentageForBody.ReqCalories - (this.Datafoods[i].calories/100 * this.NumGrams)) 
+            this.percentageForBody.protein  = Math.floor( this.percentageForBody.protein  - (this.Datafoods[i].Protein/100 *  this.NumGrams))
+            this.percentageForBody.carb = Math.floor( this.percentageForBody.carb - (this.Datafoods[i].Carbs/100 *  this.NumGrams))
+            this.percentageForBody.fats = Math.floor(this.percentageForBody.fats - (this.Datafoods[i].Fat/100 * this.NumGrams))
+            this.Diets.push({"name":this.Datafoods[i].NameFoods,"amount":this.NumGrams })
+            this.caloriesUses = this.caloriesUses + this.Datafoods[i].calories/100 * this.NumGrams
+            this.proteinUses = this.proteinUses + this.Datafoods[i].Protein/100 * this.NumGrams
+            this.carbUses = this.carbUses + this.Datafoods[i].Carbs/100 * this.NumGrams
+            this.fatUses = this.fatUses + this.Datafoods[i].Fat/100 * this.NumGrams
+          }
+            
+      }
+      this.NumGrams=null
+    
+      // console.log(this.NumDay)
+    
     }
     else{
-        this.percentageForBody.ReqCalories = this.percentageForBody.ReqCalories - (this.Datafoods[this.selectfood].calories/100 * this.NumGrams)
-        this.percentageForBody.protein  = this.percentageForBody.protein  - (this.Datafoods[this.selectfood].Protein/100 *  this.NumGrams)
-        this.percentageForBody.carb = this.percentageForBody.carb - (this.Datafoods[this.selectfood].Carbs/100 *  this.NumGrams)
-        this.percentageForBody.fats = this.percentageForBody.fats - (this.Datafoods[this.selectfood].Fat/100 * this.NumGrams)
-        this.Diets.push({"name":this.Datafoods[this.selectfood].NameFoods,"amount":this.NumGrams })
-        this.caloriesUses = this.caloriesUses + this.Datafoods[this.selectfood].calories/100 * this.NumGrams
-        this.proteinUses = this.proteinUses + this.Datafoods[this.selectfood].Protein/100 * this.NumGrams
-        this.carbUses = this.carbUses + this.Datafoods[this.selectfood].Carbs/100 * this.NumGrams
-        this.fatUses = this.fatUses + this.Datafoods[this.selectfood].Fat/100 * this.NumGrams
-      }
-        
+      this.toastr.warningToastr("Your Calories Available Less Than Foods Select")
+    }
+
+    }
+    
+    
   }
 
-  // console.log(this.NumDay)
-
-}
-else{
-  this.toastr.warningToastr("Your Calories Available Less Than Foods Select")
-}
  
 
 }
-CurrentcaloriesCount( ){
-  if(this.percentageForBody.ReqCalories>=this.Datafoods[this.selectfood].calories * this.NumGrams){
-    console.log(this.NumDay)
-    if(this.NumDay=='Choose Day')
-    {
-      this.toastr.warningToastr("Please Choose Day Frist")
-
-    }
-  else
-  {
-    if(this.NumMeal=='Choose Num Meal')
-    {
-      this.toastr.warningToastr("Please Choose Num Meal Frist")
-
+CurrentcaloriesCount(){
+  for (let i = 0; i < this.Datafoods.length; i++) {
+    if(this.Datafoods[i].id ==this.selectfood ){
+      if(this.percentageForBody.ReqCalories>=this.Datafoods[i].calories * this.NumGrams){
+        console.log(this.NumDay)
+        if(this.NumDay=='Choose Day')
+        {
+          this.toastr.warningToastr("Please Choose Day Frist")
+    
+        }
+      else
+      {
+        if(this.NumMeal=='Choose Num Meal')
+        {
+          this.toastr.warningToastr("Please Choose Num Meal Frist")
+    
+        }
+        else{
+            this.percentageForBody.ReqCalories = Math.floor( this.percentageForBody.ReqCalories - (this.Datafoods[i].calories * this.NumGrams) )
+            this.percentageForBody.protein  = Math.floor( this.percentageForBody.protein  - (this.Datafoods[i].Protein *  this.NumGrams) )
+            this.percentageForBody.carb = Math.floor( this.percentageForBody.carb - (this.Datafoods[i].Carbs *  this.NumGrams) )
+            this.percentageForBody.fats = Math.floor( this.percentageForBody.fats - (this.Datafoods[i].Fat* this.NumGrams) )
+            this.Diets.push({"name":this.Datafoods[i].NameFoods,"amount":this.NumGrams })
+            this.caloriesUses = this.caloriesUses + this.Datafoods[i].calories * this.NumGrams
+            this.proteinUses = this.proteinUses + this.Datafoods[i].Protein * this.NumGrams
+            this.carbUses = this.carbUses + this.Datafoods[i].Carbs * this.NumGrams
+            this.fatUses = this.fatUses + this.Datafoods[i].Fat * this.NumGrams
+          }
+            
+      }
+      this.NumGrams=null
+    
+      // console.log(this.NumDay)
+    
     }
     else{
-        this.percentageForBody.ReqCalories = this.percentageForBody.ReqCalories - (this.Datafoods[this.selectfood].calories * this.NumGrams)
-        this.percentageForBody.protein  = this.percentageForBody.protein  - (this.Datafoods[this.selectfood].Protein *  this.NumGrams)
-        this.percentageForBody.carb = this.percentageForBody.carb - (this.Datafoods[this.selectfood].Carbs *  this.NumGrams)
-        this.percentageForBody.fats = this.percentageForBody.fats - (this.Datafoods[this.selectfood].Fat* this.NumGrams)
-        this.Diets.push({"name":this.Datafoods[this.selectfood].NameFoods,"amount":this.NumGrams })
-        this.caloriesUses = this.caloriesUses + this.Datafoods[this.selectfood].calories * this.NumGrams
-        this.proteinUses = this.proteinUses + this.Datafoods[this.selectfood].Protein * this.NumGrams
-        this.carbUses = this.carbUses + this.Datafoods[this.selectfood].Carbs * this.NumGrams
-        this.fatUses = this.fatUses + this.Datafoods[this.selectfood].Fat * this.NumGrams
-      }
-        
+      this.toastr.warningToastr("Your Calories Available Less Than Foods Select")
+    }
+
+    }
   }
 
-  // console.log(this.NumDay)
-
-}
-else{
-  this.toastr.warningToastr("Your Calories Available Less Than Foods Select")
-}
  
 
 }
 SaveThisMeal(){
   for (let j = 0; j < this.nummeals.length; j++) {
     if(this.nummeals[j]==this.NumMeal){
-      this.allmeals.push({"NumMeal":this.NumMeal,"SelFoods":this.Diets,"caloriesOfMeal":this.caloriesUses,"proteinOfMeal":this.proteinUses,"carbOfMeal":this.carbUses,"fatOfMeal":this.fatUses})
+      this.allmeals.push({"NumMeal":this.NumMeal,"SelFoods":this.Diets,"caloriesOfMeal":Math.floor(this.caloriesUses),"proteinOfMeal":Math.floor(this.proteinUses),"carbOfMeal":Math.floor(this.carbUses),"fatOfMeal":Math.floor(this.fatUses)})
       this.caloriesUses = 0
       this.proteinUses = 0 
       this.carbUses = 0 
@@ -431,8 +459,10 @@ finish(){
 
   
 }
-inde(ind){
-this.selectfood = ind
+inde(id){
+ 
+this.selectfood = id
+
 
 }
 wiating(){

@@ -4,8 +4,9 @@
 } 
 
 form{
-    width: 101%;
+    width: 100%;
     margin-top: 8%;
+    overflow: hidden;
     .container{
         h1{
             margin-bottom: 6%;
@@ -39,7 +40,64 @@ form{
     color: white;
     margin-left: 5%;
     width: 25%;
+}
+
+@media only screen and (min-width: 1200px)
+{
+
+
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+{
     
 
+}
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{
+    form
+    {
+        margin-top: 12% !important;
+
+    }
+  
+
+
+}
+@media only screen and (max-width: 767px) 
+{
+    form
+    {
+        margin-top: 20% !important;
+        .container
+        {
+            padding-left:35px !important ;
+            padding-right:35px !important ;
+            .col-sm-4,.col-sm-2
+            {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+
+            }
+        }
+
+    }
+ 
+
+}
+@media only screen and (max-width: 499px) 
+{
+    form
+    {
+        margin-top: 20% !important;
+        .container
+        {
+         .CalculateYourCalories
+         {
+             font-size: 1.7em;
+         }
+        }
+
+    }
+ 
 
 }

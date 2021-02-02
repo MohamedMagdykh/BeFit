@@ -29,6 +29,7 @@ export class CaloriesComponent implements OnInit {
 
 
   constructor(private router:Router, private authService:AuthService,private spinner: NgxSpinnerService) { }
+ 
 
   ngOnInit(): void {
     this.heroForm = new FormGroup({
@@ -46,11 +47,31 @@ export class CaloriesComponent implements OnInit {
       ]),
   
     });
+    var widthscreen = window.matchMedia("(max-width: 600px)")
+    this.MQ(widthscreen)
+    if (window.matchMedia('(max-width: 600px)').matches) {
+     
+  }
     if (!localStorage.getItem('foo')) { 
       localStorage.setItem('foo', 'no reload') 
       location.reload() 
     } else {
       localStorage.removeItem('foo') 
+    }
+  }
+  MQ(x) {
+    if (x.matches) { // If media query matches
+      $(".editecollapese").css({
+        "margin-top": "38%",
+        "margin-left": "-32%"
+    
+    })
+    } else {
+      $(".editecollapese").css({
+        "margin-top": "0",
+        "margin-left": "0"
+    
+    })
     }
   }
   //BMR = 66.5 + ( 13.75 × weight in kg ) + ( 5.003 × height in cm ) – ( 6.755 × age in years ) men

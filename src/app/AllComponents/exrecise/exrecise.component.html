@@ -1,14 +1,22 @@
 
-
+<div class="col-12 Exrecisecomponentt">
 <div class="row Exrecisecomponent">
-    <div class="col-3 ">
-      <div class="list-group ExreciseName" id="list-tab" role="tablist">
-        <a class="list-group-item list-group-item-action " id="list-home-list" data-toggle="list" role="tab" aria-controls="home" (click)="IdEx(item.id)" *ngFor="let item of this.DataExrecises ">{{item.ExreciseName}}</a>
-        <a class="list-group-item list-group-item-action " id="list-Exercise system-list" data-toggle="modal" data-target="#ExreciseName"  role="tab" >Add New Exercise System  <i class="fa fa-plus fa-lg " aria-hidden="true"></i></a>
+  
+    <div class="col-3 tablistMQ">
+      <div class="list-group ExreciseName"  id="list-tab" role="tablist" >
+        <a class="list-group-item list-group-item-action  "   id="list-home-list" data-toggle="list" role="tab" aria-controls="home" (click)="IdEx(item.id)"
+         *ngFor="let item of this.DataExrecises ; let index = index" [class.active]="index === 0" 
+         
+          >{{item.ExreciseName}}</a>
+        <a class="list-group-item list-group-item-action " id="list-Exercise system-list" data-toggle="modal" data-target="#ExreciseName"  role="tab"  *ngIf="TypeUser=='admin'">Add New Exercise System  <i class="fa fa-plus fa-lg " aria-hidden="true"></i></a>
 
       </div>
+    </div> 
+    <div class="col-9"  *ngIf="  TypeUser!='admin' " id="noData" style="width: 100%;" > 
+      <img src="../../../assets/NoData.png" style="width:100%" alt="">
+
     </div>
-    <div class="col-9 formAddEx" *ngIf=" getdata.length==0 ">
+    <div class="col-9 formAddEx" *ngIf=" getdata.length==0 && TypeUser=='admin' ">
         <div class="container  ">
           <select class="DaysSelection"   [(ngModel)]="NumDay" name="day"  >
             <option disabled >Must Choose Day</option>
@@ -19,12 +27,18 @@
         
         <input [disabled]="NumDay=='Must Choose Day'" class="form-control nameExrecise" type="text" [(ngModel)]="nameEx" placeholder="Name exrecise">
         <div class="formImg">
-        <label class="btn btn-default"> <input type="file"
-          (change)="SelectImg($event)">
-        </label>
-         
-        <button class="btn btn-success" [disabled]="!selectedFiles || NumDay=='Must Choose Day' "
-          (click)="AddImgExecise()">Upload</button>
+          <div class="col-12 UploadphotoDiv" style="position: relative;">
+            <div class="row">
+              <label class="btn btn-default col-6"  style="position:absolute; left: 0px;"> <input type="file"
+                (change)="SelectImg($event)">
+              </label>
+               
+              <button class="btn btn-success col-3 text-center" style="position:absolute;right: 30px;" [disabled]="!selectedFiles || NumDay=='Must Choose Day' "
+                (click)="AddImgExecise()">Upload</button>
+
+            </div>
+          </div>
+       
           
         
       
@@ -37,7 +51,7 @@
       </div>
     </div>
       <br>
-      <div class="row">
+      <div class="row" style="margin-top: 20px;">
         <button  type="submit" [disabled]="load" (click)="addCollectionEx()" class="form-control btn-addEx">Add Exrecise</button>
 
       <div class="load" *ngIf="percentage==100 && load==true">
@@ -46,8 +60,11 @@
       </div>
 
        </div>
-      
-            <label class="numExAdd">Number Exrecise Added : {{this.dataOfEx.length}}</label>
+      <div class="text-center numExAddDiv " style="width:100%;padding-right: 25%;">
+        <label class="numExAdd">Number Exrecise Added : {{this.dataOfEx.length}}</label>
+
+      </div>
+            
 
             <input  class="form-control nameExrecise " type="text" name="nameday" [(ngModel)]="NameDay" placeholder="Name Day">
 
@@ -72,11 +89,11 @@
   </div>
   <div class="col-9 EXshow"  *ngIf="getdata.length!=0">
     <h2 class="text-center">{{EXsystemname}}</h2>
-    <button class=" form-control btn-select wow pulse" data-wow-duration="2s"  data-wow-delay="0.5s" (click)="EXSelect()">Select This Exrecise System</button>
-     <span style="color: var(--maincolor);">Describion For {{EXsystemname}} : </span>
-    <p class="lead">{{getdescribion}}</p>
-    <div *ngFor="let item of getdata; ">
-      <h3 class="text-center">{{item.day}}/{{item.nameDay}}</h3>
+    <button class=" form-control pulseMQ btn-select wow pulse" data-wow-duration="2s"  data-wow-delay="0.5s" (click)="EXSelect()">Select This Exrecise System</button>
+     <span style="color: var(--maincolor);" class="descripeExspan">Describion For {{EXsystemname}} : </span>
+    <p class="lead descripeExP">{{getdescribion}}</p>
+    <div *ngFor="let item of getdata; " class="divDay">
+      <h3 class="text-center dayMQ">{{item.day}}/{{item.nameDay}}</h3>
       <div class="oneEX text-center" *ngFor="let item2 of item.data;let i=index">
         <h4>{{i+1}}. {{item2.name}}</h4>
         <img src="{{item2.photo}}" alt="noPhoto">
@@ -94,6 +111,7 @@
 
   </div>
 </div>
+
 
 
   <!-- //////////////////////////////////////name EX model///////////////////////////////////////// -->

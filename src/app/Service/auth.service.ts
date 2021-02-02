@@ -48,15 +48,18 @@ export class AuthService {
 
           this.VerificationLogIn()
           this.IsLoggedIn()
-      this.toastr.successToastr("LogIn")
+      
       localStorage.setItem('mail', JSON.stringify(res.user.email));
       setTimeout(() => {
         this.router.navigate(['/profile'])
         
       }, 500);
+   
  
     })
-    .catch(error => this.toastr.warningToastr(error));
+    .catch(error => {
+      this.toastr.warningToastr("E-MAIL OR PASSWORD NOT CORRECT")
+    });
     // this.VerificationLogIn()
     //   this.toastr.successToastr("LogIn")
     //   localStorage.setItem('mail', JSON.stringify(result.user.email));
@@ -96,6 +99,7 @@ async log_out(){
   localStorage.removeItem("Nameuser")
   localStorage.removeItem("ProfilePhotoUser")
   localStorage.removeItem("UserPassword")
+  localStorage.removeItem("typeuser")
 
   this.toastr.successToastr("LogOut")
   setTimeout(() => {
@@ -117,7 +121,15 @@ async log_out(){
 }
 async sendPasswordResetEmail(passwordResetEmail: string) {
   // console.log(this.afAuth.sendPasswordResetEmail(passwordResetEmail))
-  return await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
+  
+
+  return await this.afAuth.sendPasswordResetEmail(passwordResetEmail).then(fun=>{
+    this.toastr.successToastr("Check Massage Send To Your E-Mail")
+
+  })
+
+ 
+  
 }
 async register(email: string, password: string) {
   // var result = await this.afAuth.createUserWithEmailAndPassword(email, password)
@@ -127,7 +139,7 @@ async register(email: string, password: string) {
   return this.afAuth.createUserWithEmailAndPassword(email, password)
   .then(credential => {
     this.login(email,password)
-    console.log(credential.user)
+    // console.log(credential.user)
     this.sendEmailVerification();
   })
  
@@ -146,12 +158,13 @@ async sendEmailVerification() {
 }
     Add_InfoUser(SignInMail,SignInpassword,UserName){
       
-      console.log(this.AddUrl)
+      // console.log(this.AddUrl)
       var body = { 
           "mail":SignInMail,
           "password":SignInpassword,
           "name":UserName,
           "url":this.AddUrl,
+          "type":"client",
           "day1":[],
           "day2":[],
           "day3":[],
@@ -184,7 +197,7 @@ Add_Img_user(fileUpload: Fileupload): Observable<number> {
     finalize(() => {
       storageRef.getDownloadURL().subscribe(downloadURL => {
         this.AddUrl = downloadURL;
-        console.log('File available at', downloadURL);
+        // console.log('File available at', downloadURL);
         fileUpload.url = downloadURL;
         fileUpload.name = fileUpload.file.name;
         this.saveFileData(fileUpload);
@@ -227,7 +240,7 @@ update_UserName(user,id)
     .then(() => {
       this.deleteFileStorage(fileUpload.name);
     })
-    .catch(error => console.log(error));
+    .catch(error => this.toastr.warningToastr("TRY IN ANOTHER TIME"));
 }
 private deleteFileDatabase(key: string) {
   return this.db.list(this.basePath).remove(key);
@@ -283,7 +296,7 @@ update_profilePhoto(id)
   setTimeout(() => {
     this.router.navigate(['/foods'])
     
-  }, 500);
+  }, 1000);
 
   
  }  

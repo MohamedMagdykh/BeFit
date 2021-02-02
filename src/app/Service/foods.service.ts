@@ -37,7 +37,7 @@ Add_Foods(Namefoods,calories,Protein,Carbs,Fat,typefoods){
   let URL
   if(this.AddUrl == null || this.AddUrl == undefined ){
     URL = localStorage.getItem("urlPhotoFood")
-    console.log("urlPhotoFood")
+    // console.log("urlPhotoFood")
   }
   else{
     URL = this.AddUrl
@@ -165,6 +165,41 @@ Add_Img_Food(fileUpload: Fileupload): Observable<number> {
   .catch(error => console.log(error));
   
  }
+ update_food(Namefood,calorie,Proteins,Carb,Fats,TypeFoods,id)
+        {
+          console.log(id)
+        
+          
+        
+        
+
+          this.firestore.collection('policies').doc(id).update({
+            NameFoods:Namefood,
+            calories:calorie,
+            Fat:Fats,
+            Protein:Proteins,
+            TypeFood:TypeFoods,
+            Carbs:Carb,
+            url:localStorage.getItem("urlPhotoFood")
+          }).then(() => 
+          {
+            this.toastr.successToastr("Food Updated")
+            setTimeout(function(){
+              if (!localStorage.getItem('foo')) { 
+                localStorage.setItem('foo', 'no reload') 
+                location.reload() 
+              } else {
+                localStorage.removeItem('foo') 
+              }
+            },2000)
+            
+        
+              
+            
+          })
+          .catch(error => console.log(error));
+          
+        }
 
  
 

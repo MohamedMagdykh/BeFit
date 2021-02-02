@@ -54,7 +54,8 @@ export class ExreciseComponent implements OnInit {
       ////////////////////ExUserSelect//////////////////////
       SystemUserSelect=[]
 
-      
+      TypeUser = localStorage.getItem("typeuser")
+
 
 
       
@@ -95,6 +96,7 @@ export class ExreciseComponent implements OnInit {
 
             
           }, 1000);
+         
       }
 
 
@@ -112,9 +114,14 @@ export class ExreciseComponent implements OnInit {
                     
                   } 
                 
-                })
+                }) 
                 
-             
+             setTimeout(() => {
+              document.getElementById("list-home-list").click()
+               document.getElementById("noData").style.display = "none"
+              
+               
+             }, 1000);
                 
            },
         err=>
@@ -290,7 +297,7 @@ export class ExreciseComponent implements OnInit {
                   
                   this.getdescribion = this.DataEXshow.describe
                   this.getdata=this.DataEXshow.data
-                  console.log(this.getdata)
+                  // console.log(this.getdata)
                   this.check=false
                  
 
@@ -300,7 +307,7 @@ export class ExreciseComponent implements OnInit {
                 
                 
                }
-               console.log( this.getdata)
+              //  console.log( this.getdata)
 
              
         },

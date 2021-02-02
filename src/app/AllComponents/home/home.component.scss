@@ -7,6 +7,7 @@ $color:rgb(227, 108, 81);
 
 
 .carousel-item {
+    position: relative;
    
             img{
                 height: 840px;
@@ -33,8 +34,10 @@ $color:rgb(227, 108, 81);
                 }
             }
                 .PositionCaption{
-                    margin-right: 28%;
-                    margin-top: 17%;
+                    position: absolute;
+                    top: 40%;
+                    left: 15%;
+                
                     h3,h4,.GitFitStrong,h1,p{
                         margin-bottom: 1%;
                     }
@@ -57,7 +60,10 @@ $color:rgb(227, 108, 81);
                     }
 
                     p{
-                        margin-left: 275px;
+                        position: absolute;
+                        width: 100%;
+                        left: 20%;
+                        font-size: 20px;
                        
                     }
                     span{
@@ -87,6 +93,7 @@ $color:rgb(227, 108, 81);
                     
                     width: 100%;
                     height: 600px;
+                    position: relative;
                     h1{
                         color: var(--maincolor);
                         margin-top: 2%;
@@ -97,8 +104,10 @@ $color:rgb(227, 108, 81);
                     padding-top: 3%;
                 }
                 .signature{ 
-                    margin-top: 6%;
-                    margin-left: 25%;
+                    position: absolute;
+                    left: 28%;
+                    top: 51%;
+                  
                     transform: rotate(-15deg);
                     &:hover{
                         box-shadow: 8px 8px 10px 10px whitesmoke;
@@ -112,8 +121,10 @@ $color:rgb(227, 108, 81);
   
         .sectionTrainer{
             min-width: 100%;
+            width: 100%;
             height: 550px;
             margin-top: 2%;
+            position: relative;
 
             .container{
                 border: 1px solid #dddfe2;
@@ -124,16 +135,13 @@ $color:rgb(227, 108, 81);
                     overflow: scroll;
                     .comments{
                     
-                    
-
                         padding-left: 170px;
                         padding-right: 170px;
     
                         margin-bottom: 2%;
                         border-bottom: 1px solid rgba(0, 0, 0, 0.1)!important;
                         .row{
-                            
-    
+                            position: relative;
                             padding-left: 0px;
                             padding-right: 0px;
                             .imgcomment{
@@ -180,82 +188,11 @@ $color:rgb(227, 108, 81);
             }
         }
            
-            // .row{
-            //     .right{
-                    
-            //         background: url('src/assets/Trainer.jpg') ;
-            //         background-size: 100% 100%;
-                    
-            //         width: 50%;
-            //         height: auto;
-
-            //     .DarkFrame{
-            //         background:rgba(37, 37, 37, 0.50); ;
-            //         width: 100%;
-            //         height: 450px;
-            //         padding-top: 20%; ;
-            //         div{
-            //             border:  1px solid rgba(255,255,255,0.07);
-            //             width: 280px;
-            //             margin-left: 12%;
-            //             p{
-            //                 margin-left: 20%;
-            //                 margin-top: 3%;
-            //                 margin-bottom: 0px;
-            //                 span{
-            //                     font-size: 25px;
-            //                     color: #ffffff
-            //                 }
-            //             }
-            //             h2{
-            //                 margin-top: 0px;
-            //                 margin-bottom: 3%;
-            //                 margin-left: 20%;
-            //                 span{
-            //                     font-size: 45px;
-            //                     color: var(--maincolor)
-            //                 }
-            //             }
-                     
-            //         }
-            //     }
-            // }
-            //     .left{
-            //         width: 50%;
-            //         height: 450px;
-            //         padding-left: 8%;
-            //         padding-top: 2%;
-            //         p{
-            //             span {
-                           
-            //                 strong{
-            //                     .NameTrainer{
-            //                         color: #505050;
-
-            //                         font-size: 24pt;
-            //                     }
-            //                 }
-            //             }
-            //             .Jop{
-            //                 font-family: "Raleway";
-            //                 color: #8d8d8d;
-            //                 font-size: 24pt;
-            //                 span{
-            //                     font-size: 18pt;
-            //                 }
-                            
-            //             }
-            //         }
-            //        .InfoTrainer{
-            //            overflow: scroll;
-            //        }
-            //     }
-            // }
         
     }
     footer{
         background-color: #262626;
-        height: 550px;
+        height: auto;
         h3{
             color: #fff;
             font-size: 25px;
@@ -435,35 +372,7 @@ $color:rgb(227, 108, 81);
     }
        
 }   
-// .ContactUs{
-//     margin-top: 40px;
-//     background-image: url('src/assets/9.jpg') ;
-//     .DarkFrame{
-//         .inputcontact{
-//             margin-bottom: 20px;
-//         }
-//         textarea{
-//             height: 110px;
-//             width: 100%; 
-//         }
-//         .form-control , textarea{
-//             background: rgba(82, 78 , 78, 0.5);
-//             color: #fff;
-//             border: none
-//         }
-//         background: rgba(30, 30 , 30, 0.7);
-//         h2{
-//             color: rgb(240, 240, 240);
-//         }
-//         p{
-//             color: rgb(240, 240, 240);
-//         }
-//         .btn-block{
-//             margin-bottom: 20px;
-//         }
-//     }
-   
-// }
+
 #myModal2{
     background: rgba(30, 30 , 30, 0.7);
     .inputcontact{ 
@@ -474,5 +383,457 @@ $color:rgb(227, 108, 81);
                 }
 }
 
-        
+
+@media only screen and (min-width: 1200px)
+{
+    .sectionTrainer
+    {
+      
+        .comments
+        {
+           .Showreply{
+               font-size: 13px !important;
+           }
+           .row
+           {
+              
+               .mediadate
+               {
+                   margin-top: -12px !important;
+                   margin-left: 10% !important;
+
+               }
+               span
+               {
+                   margin-top: -16px !important;
+               }
+               
+
+           }
+
+        }
+        .mediareply2
+        {
+            width: 100%;
+
+
+        }
+
+    }
+
+
+
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+{
+    .sectionTrainer
+    {
+      
+        .comments
+        {
+           .Showreply{
+               font-size: 13px !important;
+           }
+           .row
+           {
+              
+               .mediadate
+               {
+                   margin-top: -5px !important;
+                   margin-left: 12% !important;
+
+               }
+               span
+               {
+                   margin-top: -9px !important;
+               }
+               
+
+           }
+
+        }
+        .mediareply2
+        {
+            .mediabox,.mediabox2
+            {
+               width: 64% !important;
+               margin-left: 12% !important;
+            }
+
+        }
+
+    }
+
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px)
+{
+    .carousel-item
+     {
+        .PositionCaption
+        {
+            h1
+            {
+                font-size: 2.5rem !important;
+            }
+            p
+            {
+                left: 4% !important;
+                font-size: 15px !important;
+            }
+
+        }
+
+     }
+     .AboutUs
+     {
+         .signature
+         { 
+             left: 16% !important;
+
+         }
+     }
+     .sectionTrainer
+     {
+       
+         .comments
+         {
+            .Showreply{
+                font-size: 13px !important;
+            }
+            .row
+            {
+               
+                .mediadate
+                {
+                    margin-top: -5px !important;
+                    margin-left: 18% !important;
+
+                }
+                span
+                {
+                    margin-top: -9px !important;
+                }
+                
+
+            }
+
+         }
+         .mediareply2
+         {
+             .mediabox,.mediabox2
+             {
+                width: 85% !important;
+                margin-left: 18% !important;
+             }
+ 
+         }
+
+     }
+  
+
+}
+@media only screen and (max-width: 767px) 
+{
+    .carousel-item
+     {
+        .PositionCaption
+        {
+            h1
+            {
+                font-size: 2.5rem !important;  
+
+            }
+            p
+            {
+                left: 4% !important;
+                font-size: 15px !important;
+            }
+
+        }
+
+     }
+     .AboutUs
+     {
+         p
+         {
+            font-size: 1rem !important;
+         }
+         .signature
+         { 
+             left: 5% !important;
+
+         }
+     }
+     .sectionTrainer
+     {
+        .fa-trash
+        {
+            margin-top: 0% !important;
+
+        }
+         .row
+         {
+            img
+            {
+                margin-left: 5% !important;
+
+            }
+
+         }
+         .comments
+         {
+            padding-left: 100px !important;
+            padding-right: 100px !important; 
+
+            .Showreply{
+                font-size: 13px !important;
+            }
+            .row
+            {
+               
+                .mediadate
+                {
+                    margin-top: 0px !important;
+                    margin-left: 21% !important;
+
+                }
+                span
+                {
+                    margin-top: -4px !important;
+                }
+                
+
+            }
+
+         }
+
+        .mediareply2
+        {
+            .mediabox,.mediabox2
+            {
+            width: 100% !important;
+            margin-left: 20% !important;
+            }
+
+        }
+
+     }
+ 
+
+}    
+@media only screen and (max-width: 450px) 
+{
+    .carousel-item
+     {
+        img
+        {
+            height: 740px !important;
+        }
+         
+        .PositionCaption
+        {
+            h3
+            {
+                font-size: 1.1rem !important;  
+
+            }
+            h4
+            {
+                font-size: 1.2rem !important;  
+
+            }
+            h1
+            {
+                font-size: 1.4rem !important;  
+
+            }
+            p
+            {
+                left: 4% !important;
+                font-size: 12px !important;
+            }
+
+        }
+
+     }
+     .AboutUs
+     {
+         p
+         {
+            font-size: 1rem !important;
+         }
+         .signature
+         { 
+             left: 1px !important;
+             right: 1px  !important;
+             width: 100%;
+
+         }
+     }
+     .sectionTrainer
+     {
+         .title
+         {
+            margin-left: 5% !important;
+            font-size: 1.6rem !important;
+
+         }
+       
+        .newPost
+        {
+            textarea
+            {
+               height: 60px !important;
+   
+            }
+            img
+            {
+                width: 60px !important;
+                height: 60px !important;
+            }
+            .forumPostButton
+            {
+                width: 30% !important;
+                margin-left: 63% !important;
+
+            }
+        }
+        .fa-trash
+        {
+            margin-top: 0% !important;
+
+        }
+         .row
+         {
+            img
+            {
+                margin-left: 5% !important;
+
+            }
+
+         }
+         .comments
+         {
+            padding-left: 10px !important;
+            padding-right: 10px !important; 
+           
+
+            .Showreply
+            {
+                font-size: 13px !important;
+            }
+            .row
+            {
+               
+                .mediadate
+                {
+                    margin-top: 0px !important;
+                    margin-left: 21% !important;
+
+                }
+                span
+                {
+                    margin-top: -4px !important;
+                }
+                
+
+            }
+
+         }
+
+        .mediareply2
+        {
+            .mediabox,.mediabox2
+            {
+            width: 70% !important;
+            margin-left: 24% !important;
+            .mediabtncancel
+            {
+                margin-left: 30% !important;
+                width: auto !important;
+            }
+            .mediabtnreply
+            {
+                width: auto !important;
+            }
+            }
+
+        }
+
+     }
+     footer{
+
+       .LatestProjects
+       {
+           .one
+           {
+            height: 75px !important;
+            width: 80px !important;
+            margin-left: 2% !important;
+            margin-top: 2% !important;
+           }
+           .two
+           {
+            height: 75px !important;
+            width: 80px !important;
+            margin-left: 2% !important;
+            margin-top: 2% !important;
+           }
+           .three
+           {
+            height: 75px !important;
+            width: 80px !important;
+            margin-left: 2% !important;
+            margin-top: 2% !important;
+           }
+           .four
+           {
+            height: 75px !important;
+            width: 80px !important;
+            margin-left: 2% !important;
+            margin-top: 2% !important;
+           }
+           .five
+           {
+            height: 75px !important;
+            width: 80px !important;
+            margin-left: 2% !important;
+            margin-top: 2% !important;
+           }
+           .six
+           {
+            height: 75px !important;
+            width: 80px !important;
+            margin-left: 2% !important;
+            margin-top: 2% !important;
+           }
+           .seven
+           {
+            height: 75px !important;
+            width: 80px !important;
+            margin-left: 2% !important;
+            margin-top: 2% !important;
+           }
+           .eight
+           {
+            height: 75px !important;
+            width: 80px!important;
+            margin-left: 3% !important;
+            margin-top: 2% !important;
+           }
+           .nine
+           {
+            height: 80px!important;
+            width: 80px !important;
+            margin-left: 2% !important;
+            margin-top: 2% !important;
+           }
+       }
+   
+}   
+
+ 
+
+}       
      

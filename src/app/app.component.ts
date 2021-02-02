@@ -42,6 +42,7 @@ export class AppComponent {
    public load = true
 
   constructor(private  authService:  AuthService,public toastr: ToastrManager,private spinner: NgxSpinnerService){
+
    
 
   }
@@ -53,6 +54,8 @@ export class AppComponent {
     this.heroForm = new FormGroup({
       'E-mail': new FormControl(this.email, [
         Validators.required,
+        Validators.email,
+
       ]),
       'Password': new FormControl(this.pass,[
         Validators.required,
@@ -60,6 +63,7 @@ export class AppComponent {
       ]),
       'SignInMail': new FormControl(this.SignInMail, [
         Validators.required,
+        Validators.email,
       ]),
       'SignInpassword': new FormControl(this.SignInpassword, [
         Validators.required,
@@ -72,10 +76,15 @@ export class AppComponent {
       'UserName': new FormControl(this.UserName, [
         Validators.required,
       ]),
+      'mailConfirm': new FormControl(this.EmailResetPassword, [
+        Validators.required,
+        Validators.email,
+      ]),
 
       
       
     });
+    
    
     window.addEventListener('scroll', function() 
     {
@@ -126,20 +135,28 @@ export class AppComponent {
     
 
   }
+  
   LogIn(){
+    
+
         this.authService.login(this.email,this.pass) 
+        
 
-        .catch((error) => {
-      if(error.code){
-        this.toastr.warningToastr(error.message)
-      }
+    //     .catch((error) => {
+    //       console.log(document.getElementById("maillogin"))
+          
+    //   if(error.code){
+    //     this.toastr.warningToastr(error.message)
+    //   }
 
-    });
+    // });
+    
+    
 
-    this.email=null
-    this.pass = null 
+ 
 
   }
+
   send_Password_ResetEmail(){
     // this.EmailResetPassword = localStorage.getItem("mail")
     // console.log(this.EmailResetPassword)
@@ -147,9 +164,9 @@ export class AppComponent {
     .catch((error) => {
       if(error.code){
        this.toastr.warningToastr(error.message)
+       
      }
    });
-   this.toastr.successToastr("Check Massage Send To Your E-Mail")
 
 
   }
@@ -253,6 +270,7 @@ export class AppComponent {
       
     }, 10000); 
   }
+ 
 
 
 }
