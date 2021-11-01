@@ -58,6 +58,8 @@ export class CaloriesComponent implements OnInit {
     } else {
       localStorage.removeItem('foo') 
     }
+    document.getElementById('footer').style.width= "100%"
+    document.getElementById('footer').style.marginLeft= "0%"
   }
   MQ(x) {
     if (x.matches) { // If media query matches

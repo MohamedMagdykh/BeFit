@@ -96,6 +96,8 @@ export class ExreciseComponent implements OnInit {
 
             
           }, 1000);
+          document.getElementById('footer').style.width= "100%"
+          document.getElementById('footer').style.marginLeft= "0%"
          
       }
 

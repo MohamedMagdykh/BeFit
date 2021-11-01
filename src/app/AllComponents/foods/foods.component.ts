@@ -133,7 +133,8 @@ latestEntry: any
     // var x = window.matchMedia("(max-width: 700px)")
     
 
-    
+    document.getElementById('footer').style.width= "100%"
+    document.getElementById('footer').style.marginLeft= "0%"
  
   }
   AddAndUpdatefood(){

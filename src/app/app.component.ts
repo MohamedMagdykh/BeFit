@@ -45,7 +45,7 @@ export class AppComponent {
   }
   
   ngOnInit(): void {
-    console.log(localStorage.getItem('colorSite'))
+ 
     if(localStorage.getItem('colorSite'))
     {
       var bodyStyles =  document.body.style;

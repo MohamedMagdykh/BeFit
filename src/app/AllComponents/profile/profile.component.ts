@@ -9,7 +9,11 @@ import { AuthService } from 'src/app/Service/auth.service';
 })
 export class ProfileComponent implements OnInit {
 
-  ngOnInit(){}
+  ngOnInit()
+  {
+    document.getElementById('footer').style.width= "83.333333%"
+    document.getElementById('footer').style.marginLeft= "16.666667%"
+  }
 
   constructor(private  authService:  AuthService)
   {

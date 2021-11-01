@@ -106,7 +106,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   // console.log(this.authService.isLoggedIn)
-
+  document.getElementById('footer').style.width= "100%"
+  document.getElementById('footer').style.marginLeft= "0%"
 
   }
 
