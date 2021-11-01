@@ -51,7 +51,7 @@ export class AuthService {
       
       localStorage.setItem('mail', JSON.stringify(res.user.email));
       setTimeout(() => {
-        this.router.navigate(['/profile'])
+        this.router.navigate(['/profile/plan'])
         
       }, 500);
    

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { AuthService } from  'src/app/Service//auth.service';
 import { ToastrManager } from 'ng6-toastr-notifications';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Fileupload } from './Models/fileupload.model';
 import { Userr } from 'src/app/Models/userr.model';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -17,18 +17,15 @@ export class AppComponent {
   title = 'Be-Fit';
   isActive = true
   //////login//////
-  email 
-  pass 
   CheckLog:boolean
-  heroForm
+  LoginForm:FormGroup;
+  submittedLogin = false;
   //////forgetpass///////
   EmailResetPassword
   ////////////signin/////////
-  SignInMail
-  SignInpassword
-  UserName
-  RePassword
-  
+  SignUpForm:FormGroup;
+  submittedSignUp = false;
+
    /////UploadFoodImg/////
    selectedFiles: FileList;
    percentage: number;
@@ -40,50 +37,46 @@ export class AppComponent {
    Username
    UserUrl
    public load = true
-
-  constructor(private  authService:  AuthService,public toastr: ToastrManager,private spinner: NgxSpinnerService){
+   colorspinner
+  constructor(private  authService:  AuthService,public toastr: ToastrManager,private spinner: NgxSpinnerService,private formBuilder: FormBuilder){
 
    
 
   }
+  
   ngOnInit(): void {
+    console.log(localStorage.getItem('colorSite'))
+    if(localStorage.getItem('colorSite'))
+    {
+      var bodyStyles =  document.body.style;
+      bodyStyles.setProperty('--maincolor', localStorage.getItem('colorSite'));
+      this.colorspinner = localStorage.getItem('colorSite')
+    }
+    else
+    {
+      var bodyStyles =  document.body.style;
+      bodyStyles.setProperty('--maincolor', 'rgb(227, 108, 81)');
+      this.colorspinner = 'rgb(227, 108, 81)'
+    }
+   
     this.spinner.show();
 
+    this.LoginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+  });
     
-    
-    this.heroForm = new FormGroup({
-      'E-mail': new FormControl(this.email, [
-        Validators.required,
-        Validators.email,
 
-      ]),
-      'Password': new FormControl(this.pass,[
-        Validators.required,
-        Validators.minLength(6),
-      ]),
-      'SignInMail': new FormControl(this.SignInMail, [
-        Validators.required,
-        Validators.email,
-      ]),
-      'SignInpassword': new FormControl(this.SignInpassword, [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
-      'RePassword': new FormControl(this.RePassword, [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
-      'UserName': new FormControl(this.UserName, [
-        Validators.required,
-      ]),
-      'mailConfirm': new FormControl(this.EmailResetPassword, [
-        Validators.required,
-        Validators.email,
-      ]),
-
-      
-      
-    });
+  this.SignUpForm = this.formBuilder.group(
+    {
+      userName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required]
+    }, {
+      validator: this.MustMatch('password', 'confirmPassword')
+  }
+);
     
    
     window.addEventListener('scroll', function() 
@@ -132,30 +125,24 @@ export class AppComponent {
   logout(){
     this.authService.log_out()
     this.UserUrl =null
-    
-
   }
   
+    // convenience getter for easy access to form fields
+    get f_LogIn() { return this.LoginForm.controls; }
   LogIn(){
-    
+    this.submittedLogin = true;
 
-        this.authService.login(this.email,this.pass) 
-        
-
-    //     .catch((error) => {
-    //       console.log(document.getElementById("maillogin"))
-          
-    //   if(error.code){
-    //     this.toastr.warningToastr(error.message)
-    //   }
-
-    // });
-    
-    
-
- 
-
+    // stop here if form is invalid
+        if (this.LoginForm.invalid) {
+            return;
+        }
+       
+      this.authService.login(this.LoginForm.get('email').value,this.LoginForm.get('password').value) 
   }
+  onResetLogInForm() {
+    this.submittedLogin = false;
+    this.LoginForm.reset();
+}
 
   send_Password_ResetEmail(){
     // this.EmailResetPassword = localStorage.getItem("mail")
@@ -170,32 +157,62 @@ export class AppComponent {
 
 
   }
-  signin(){
-    if(this.SignInpassword==this.RePassword){
-    
-    this.authService.register(this.SignInMail,this.SignInpassword).then(()=> {
-      
-     
-      this.InfoUser()
-      this.toastr.successToastr("User Created")
-     
-    
-    }).catch(function(error) {
-      alert(error)
-    });
+
+
+
+
+
+  MustMatch(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+        const control = formGroup.controls[controlName];
+        const matchingControl = formGroup.controls[matchingControlName];
+
+        if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+            // return if another validator has already found an error on the matchingControl
+            return;
+        }
+
+        // set error on matchingControl if validation fails
+        if (control.value !== matchingControl.value) {
+            matchingControl.setErrors({ mustMatch: true });
+        } else {
+            matchingControl.setErrors(null);
+        }
+    }
+}
+onResetSignUpForm() {
+  this.submittedSignUp = false;
+  this.SignUpForm.reset();
+  this.whenClosesignUp()
+}
+
+   // convenience getter for easy access to form fields
+   get f_SignUp() { return this.SignUpForm.controls; }
+  signUp()
+  {
+    this.submittedSignUp = true;
+         if(this.percentage!=100 && this.load==true)
+         { this.toastr.warningToastr("Upload Photo")}
+         if(this.percentage==100 && this.load==true)
+         { this.toastr.warningToastr("Please Wait")}
+    // stop here if form is invalid
+        if (this.SignUpForm.invalid || this.percentage!=100 || this.load==true) {
+            return;
+        }
+        console.log("2")
+        this.authService.register(this.SignUpForm.get('email').value,this.SignUpForm.get('password').value).then(()=> {
+          console.log("3")
+        this.InfoUser(this.SignUpForm.get('email').value,this.SignUpForm.get('password').value,this.SignUpForm.get('userName').value)
+        this.toastr.successToastr("User Created")
+
+      }).catch(function(error) {
+        alert(error)
+      });
+
+  }
+  InfoUser(SignInMail,SignInpassword,UserName)
+  {this.authService.Add_InfoUser(SignInMail,SignInpassword,UserName)}
   
-  }
-  else{
-    this.toastr.errorToastr("the two password not equal")
-
-  }
-  
-
-
-  }
-  InfoUser(){
-    this.authService.Add_InfoUser(this.SignInMail,this.SignInpassword,this.UserName)
-  }
   SelectImg(event) {
     this.selectedFiles = event.target.files;
     console.log(this.selectedFiles)
@@ -271,6 +288,13 @@ export class AppComponent {
     }, 10000); 
   }
  
-
+  whenOpensignUp()
+{
+    document.body.style.overflowY = "hidden"
+} 
+whenClosesignUp()
+{
+    document.body.style.overflowY = "visible"
+}
 
 }

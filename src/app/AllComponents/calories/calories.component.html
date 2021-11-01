@@ -21,53 +21,62 @@
   </div>
 </div>
 </div>
-    
-    <div class="form-group">
-      <input type="text" required class="form-control" id="inputAddress" name="age" [(ngModel)]="age" #agee="ngModel" placeholder="Age">
-      <div *ngIf="agee.invalid && (agee.dirty || agee.touched)"
-      class="alert alert-danger">
-  <div *ngIf="agee.errors.required">
-    Required 
+  <div class="col-12">
+      <div class="row">
+            <div class="form-group col-12 col-md-4">
+              <label for="age">Age:</label>
+              <input type="text" required class="form-control" id="inputAddress" name="age" [(ngModel)]="age" #agee="ngModel" placeholder="Age">
+              <div *ngIf="agee.invalid && (agee.dirty || agee.touched)"
+              class="alert alert-danger">
+          <div *ngIf="agee.errors.required">
+            Required 
+          </div>
+              </div>
+            </div>
+            <div class="form-group col-12 col-md-4">
+              <label for="weight">Weight:</label>
+              <input type="text" required class="form-control" id="inputAddress2" name="weight" #weightt="ngModel" [(ngModel)]="weight" placeholder="Weight By kg">
+              <div *ngIf="weightt.invalid && (weightt.dirty || weightt.touched)"
+              class="alert alert-danger">
+              <div *ngIf="weightt.errors.required">
+                Required 
+              </div>
+              </div>
+              
+            </div>
+            <div class="form-group col-12 col-md-4">
+            <label for="height">Height:</label>
+              <input type="text" required class="form-control" id="inputAddress2" name="height" #heightt="ngModel" [(ngModel)]="height" placeholder="Height">
+              <div *ngIf="heightt.invalid && (heightt.dirty || heightt.touched)"
+            class="alert alert-danger">
+            <div *ngIf="heightt.errors.required">
+              Required 
+            </div>
+            </div>
+          </div>
+      </div>
   </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <input type="text" required class="form-control" id="inputAddress2" name="weight" #weightt="ngModel" [(ngModel)]="weight" placeholder="Weight By kg">
-      <div *ngIf="weightt.invalid && (weightt.dirty || weightt.touched)"
-      class="alert alert-danger">
-      <div *ngIf="weightt.errors.required">
-        Required 
-      </div>
-      </div>
-      
-    </div>
-    <div class="form-group">
-        <input type="text" required class="form-control" id="inputAddress2" name="height" #heightt="ngModel" [(ngModel)]="height" placeholder="Height">
-        <div *ngIf="heightt.invalid && (heightt.dirty || heightt.touched)"
-      class="alert alert-danger">
-      <div *ngIf="heightt.errors.required">
-        Required 
-      </div>
-      </div>
-      </div>
-
-    <div class="form-row">
+  <div class="col-12">
+    <div class="row">
     
-      <div class="form-group col-md-12 ">
-          <div class="row">
-        <label for="inputState Activity" class="col-md-3">Choose Your Activity:</label>
-        <select  id="inputStatee" class="form-control col-md-8 "  name="dayss"  [(ngModel)]="NumDaysExercise">
+      <div class="form-group col-md-6 col-12 ">
+        <label for="inputState Activity">Activity Level:</label>
+
+          
+        <select  id="inputStatee" class="form-control"  name="dayss"  [(ngModel)]="NumDaysExercise">
           <option disabled>Choose...</option>
           <option value="low">Exercise 1 to 3 Days A Week</option>
           <option value="medium">Exercise 3 to 5 Days A Week</option>
           <option value="heigh">Exercise 5 to 7 Days A Week</option>
         </select>
-       </div>
+     
       </div>
-      <div class="form-group col-md-12 ">
-        <div class="row">
-      <label for="inputState Activity" class="col-md-3">Your Goal : </label>
-      <select  id="inputState" class="form-control col-md-8 "  name="days"  [(ngModel)]="goal">
+
+      <div class="form-group col-md-6 col-12  ">
+        <label for="inputState Activity" >Your Goal : </label>
+     
+   
+      <select  id="inputState" class="form-control"  name="days"  [(ngModel)]="goal">
         <option disabled>Choose...</option>
         <option value="fastgain">Gain Weight Fast</option>
         <option value="lowgain">Gain Weight Low</option>
@@ -75,10 +84,11 @@
         <option value="lowloss">Loss Weight Low</option>
         <option value="fastloss">Loss Weight Fast</option>
       </select>
-     </div>
+  
     </div>
      
     </div>
+  </div>
     <div class="text-center">
    
     <button type="submit" (click)="ClaculateCalories()" class="btn cal" [disabled]="!Form.valid" >Calculate</button>

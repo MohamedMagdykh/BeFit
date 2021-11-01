@@ -6,6 +6,7 @@ import { ExreciseComponent } from './AllComponents/exrecise/exrecise.component';
 import { CaloriesComponent } from './AllComponents/calories/calories.component';
 import { ProfileComponent } from './AllComponents/profile/profile.component';
 import { BodygardGuard } from './bodygard.guard';
+import { PlanComponent } from './AllComponents/profile/plan/plan.component';
 
 
 
@@ -14,13 +15,13 @@ const routes: Routes = [
   { path: 'foods',             component: foodsComponent, canActivate: [BodygardGuard] },
   { path: 'exrcise',             component: ExreciseComponent, canActivate: [BodygardGuard] },
   { path: 'calories',             component: CaloriesComponent, canActivate: [BodygardGuard] },
-  { path: 'profile',             component: ProfileComponent, canActivate: [BodygardGuard] },
+  { path: 'profile',             component: ProfileComponent,children:[{path:'plan', component:PlanComponent}] ,canActivate: [BodygardGuard] },
   
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

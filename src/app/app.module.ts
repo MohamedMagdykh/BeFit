@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './AllComponents/home/home.component';
 import { foodsComponent } from './AllComponents/foods/foods.component';
 import { environment } from '../environments/environment';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ng6-toastr-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireAuthModule } from '@angular/fire/auth';
@@ -20,6 +20,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { JwPaginationModule } from 'jw-angular-pagination';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PlanComponent } from './AllComponents/profile/plan/plan.component';
 
 
 
@@ -33,6 +34,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     ExreciseComponent,
     CaloriesComponent,
     ProfileComponent,
+    PlanComponent,
     
   ],
   imports: [
@@ -48,7 +50,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
         AngularFireAuthModule,
         NgxPaginationModule,
         NgxSpinnerModule,
-        JwPaginationModule
+        JwPaginationModule,
+        ReactiveFormsModule
      
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],

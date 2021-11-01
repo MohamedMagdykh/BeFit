@@ -1,8 +1,22 @@
 :root{
     --maincolorNav: var(--maincolorNav);
 }
-
-
+a
+{
+    cursor: pointer !important;
+}
+textarea:focus, input:focus ,button:focus {
+    outline: none !important;
+}
+ngx-spinner
+{
+    color: var(--maincolor) !important;
+    
+    p{
+        color: var(--maincolor);
+         font-size: 20px;
+    }
+}
 #navbar{
     top: 0px;
     background:rgb(38, 38, 38) ;
@@ -105,7 +119,7 @@
     }
     .modal-body{
         padding-bottom: 20px;
-        input{
+        .margin-bottom{
             margin-bottom: 20px;
 
         }
@@ -115,8 +129,13 @@
         }
     }
     .modal-footer{
-        button{
+        .button-Log{
+            background: var(--maincolor);
+            color: white;
+        }
+        .button-cancel{
             color: var(--maincolor);
+            
         }
     }
 }
@@ -443,7 +462,7 @@ footer{
     {
 
         position: absolute;
-        height: 731px;
+        height: 100%;
     }
  
 
@@ -524,4 +543,4 @@ footer{
 
 }
 
-
+#Signin{overflow-y: auto;}

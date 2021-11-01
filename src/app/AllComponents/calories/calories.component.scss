@@ -2,14 +2,20 @@
     
     --maincolor: var(--maincolor);
 } 
-
+.col-12{margin: 0.5% 0;}
+label{font-weight: bold;}
 form{
     width: 100%;
-    margin-top: 8%;
+    margin-top: 4%;
+    padding: 4% 12%;
     overflow: hidden;
     .container{
+        background: #f3f3f3;
+        border-radius: 30px;
+        padding: 4%;
         h1{
             margin-bottom: 6%;
+            margin-top: 0;
             color:var(--maincolor);
         }
         .form-check,.form-group{
@@ -68,6 +74,7 @@ form{
     form
     {
         margin-top: 20% !important;
+        padding: 4% 1%;
         .container
         {
             padding-left:35px !important ;

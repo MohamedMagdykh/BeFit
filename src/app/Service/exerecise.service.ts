@@ -124,7 +124,7 @@ export class ExereciseService
           this.firestore.collection('Users').doc(id).update({ExereciseSystem:EXSelect}).then(() => 
           {
             this.toastr.successToastr("SYSTEM ADDED")
-            this.router.navigate(['/profile'])
+            this.router.navigate(['/profile/plan'])
             
         
               
